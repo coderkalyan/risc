@@ -53,5 +53,6 @@ module decoder (
     assign w_imm[4:1] = ((w_type_i || w_type_j) ? i_inst[24:21] : i_inst[11:8]) & {4{!w_type_u}};
     assign w_imm[0] = (w_type_i ? i_inst[20] : i_inst[7]) & (w_type_b || w_type_u || w_type_j);
 
-    
+    // compressed instructions (16 bit)
+    wire [15:0] c_inst = i_inst[15:0];
 endmodule
