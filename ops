@@ -1,0 +1,51 @@
+arith (unit 0):
+op: 0
+* add (func 0x0)
+* subtract (func 0x1)
+* auipc (func 0x2)
+
+op: 1
+* set less than (func 0x0)
+* set less than unsigned (func 0x1)
+op: 2
+* load immediate
+op: 3
+* mult
+op: 4
+* div
+
+logic (unit 1):
+op: 0
+* xor (func 0x0)
+* or (func 0x2)
+* and (func 0x3)
+op: 1
+* shift left (func 0x0)
+* logical shift right (func 0x2)
+* arithmetic shift right (func 0x3)
+
+load (unit 2):
+* word (func 0x0)
+* half (func 0x2)
+* half unsigned (func 0x3)
+* byte (func 0x4)
+* byte unsigned (func 0x5)
+
+store (unit 3):
+* word (func 0x0)
+* half (func 0x2)
+* half unsigned (func 0x3)
+* byte (func 0x4)
+* byte unsigned (func 0x5)
+
+frontend:
+* nop
+* move
+
+branch:
+* equal
+* not equal
+* less
+* less unsigned
+* greater equal
+* greater equal unsigned
