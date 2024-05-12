@@ -2,13 +2,12 @@ arith (unit 0):
 op: 0
 * add (func 0x0)
 * subtract (func 0x1)
-* auipc (func 0x2)
-
 op: 1
 * set less than (func 0x0)
 * set less than unsigned (func 0x1)
 op: 2
 * load immediate
+* auipc
 op: 3
 * mult
 op: 4
@@ -21,15 +20,17 @@ op: 0
 * and (func 0x3)
 op: 1
 * shift left (func 0x0)
-* logical shift right (func 0x2)
+* logical shift right (func 0x1)
 * arithmetic shift right (func 0x3)
+* rotate left (func 0x4)
+* rotate right (func 0x5)
 
 load (unit 2):
-* word (func 0x0)
-* half (func 0x2)
-* half unsigned (func 0x3)
 * byte (func 0x4)
 * byte unsigned (func 0x5)
+* half (func 0x2)
+* half unsigned (func 0x3)
+* word (func 0x0)
 
 store (unit 3):
 * word (func 0x0)
