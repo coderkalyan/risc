@@ -6,19 +6,26 @@ op: 1
 * set less than (func 0x0)
 * set less than unsigned (func 0x1)
 op: 2
-* load immediate
-* auipc
-op: 3
 * mult
-op: 4
+op: 3
 * div
+op: 4
+* rem
+op: 5
+* load immediate (func 0)
+* auipc (func 1)
 
 logic (unit 1):
 op: 0
-* xor (func 0x0)
-* or (func 0x2)
-* and (func 0x3)
+xor (func 0x0)
+xnor (func 0x1)
 op: 1
+* or (func 0x0)
+* orn (func 0x1)
+op: 2
+* and (func 0x0)
+* andn (func 0x1)
+op: 3
 * shift left (func 0x0)
 * logical shift right (func 0x1)
 * arithmetic shift right (func 0x3)
