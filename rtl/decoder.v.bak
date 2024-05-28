@@ -1,0 +1,334 @@
+`default_nettype none
+
+`define UNIT_ARITH 3'h0
+`define UNIT_LOGIC 3'h1
+`define UNIT_BRANCH 3'h2
+`define UNIT_LOAD  3'h3
+`define UNIT_STORE 3'h4
+
+`define ARITH_OP_ADD 3'h0
+`define ARITH_OP_SLT 3'h1
+`define ARITH_OP_MUL 3'h2
+`define ARITH_OP_DIV 3'h3
+`define ARITH_OP_REM 3'h4
+`define ARITH_OP_RLI 3'h5
+
+`define LOGIC_OP_XOR 3'h0
+`define LOGIC_OP_OR 3'h1
+`define LOGIC_OP_AND 3'h2
+`define LOGIC_OP_SHIFT 3'h3
+
+// output bundle:
+// rs1 (5)
+// rs2 (5)
+// rd (5)
+// execution unit (3)
+// execution op select (3)
+// execution func select (3)
+// immediate (32)
+// is branch (modifies control flow) (1)
+// 5 + 5 + 5 + 3 + 3 + 3 + 32 + 1 = 57
+
+module decoder (
+    input wire [31:0] i_inst,
+    output wire [56:0] o_bundle,
+    output wire o_invalid
+);
+    // uncompressed instructions (32 bit) end in 11
+    wire [1:0] c_opcode = i_inst[1:0];
+    wire compressed = c_opcode != 2'b11;
+    // for now, we reject all compressed instructions as invalid
+    wire invalid_len = compressed;
+
+    // decoding of uncompressed instructions (word size)
+    wire [4:0] w_opcode = i_inst[6:2];
+    wire [4:0] w_rd = i_inst[11:7];
+    wire [4:0] w_rs1 = i_inst[19:15];
+    wire [4:0] w_rs2 = i_inst[24:20];
+    wire [2:0] w_funct3 = i_inst[14:12];
+    wire [6:0] w_funct7 = i_inst[31:25];
+
+    // opcode parsing (word size)
+    wire w_branch = w_opcode == 5'b11000;
+    wire w_load = w_opcode == 5'b00000;
+    wire w_store = w_opcode == 5'b01000;
+    wire w_intri = w_opcode == 5'b00100;
+    wire w_intrr = w_opcode == 5'b01100;
+    wire w_jal = w_opcode == 5'b11011;
+    wire w_jalr = w_opcode == 5'b11001;
+    wire w_auipc = w_opcode == 5'b00101;
+    wire w_lui = w_opcode == 5'b01101;
+    wire w_ecall = i_inst == 32'h00000073;
+    wire w_ebreak = i_inst == 32'h00100073;
+    // wire w_atomic = w_opcode == 5'b01011;
+    // wire w_fmadd = w_opcode == 5'b10000;
+    // wire w_fmsub = w_opcode == 5'b10001;
+    // wire w_fnmsub = w_opcode == 5'b10010;
+    // wire w_fnmadd = w_opcode == 5'b10011;
+    // wire w_float = w_opcode == 5'b10100;
+    // unknown opcodes are invalid
+    wire invalid_opcode = !(w_branch || w_load || w_store || w_intri || w_intrr || w_jal || w_jalr || w_auipc || w_lui || w_ecall || w_ebreak);
+    reg invalid_intrr_funct3, invalid_intrr_funct7;
+    reg invalid_intri_funct3, invalid_intri_funct7;
+    reg invalid_load_funct3, invalid_store_funct3;
+
+    always @(*) begin
+        invalid_intrr_funct3 = 1'b0;
+        invalid_intrr_funct7 = 1'b0;
+        invalid_intri_funct3 = 1'b0;
+        invalid_intri_funct7 = 1'b0;
+        invalid_load_funct3 = 1'b0;
+        invalid_store_funct3 = 1'b0;
+
+        if (w_intrr) begin
+            case (w_funct3)
+                3'b000, 3'b001, 3'b010, 3'b011, 3'b100, 3'b101, 3'b110, 3'b111:
+                    invalid_intrr_funct3 = 1'b0;
+                default:
+                    invalid_intrr_funct3 = 1'b1;
+            endcase
+            case (w_funct3)
+                3'b000, 3'b101:
+                    invalid_intrr_funct7 = (w_funct7 != 7'b0000000) && (w_funct7 != 7'b0100000);
+                3'b001, 3'b010, 3'b011, 3'b100, 3'b110, 3'b111:
+                    invalid_intrr_funct3 = w_funct7 != 7'b0000000;
+                default: invalid_intrr_funct7 = 1'b0;
+            endcase
+        end
+
+        if (w_intri) begin
+            case (w_funct3)
+                3'b000, 3'b010, 3'b011, 3'b100, 3'b110, 3'b111, 3'b001, 3'b101:
+                    invalid_intri_funct3 = 1'b0;
+                default:
+                    invalid_intri_funct3 = 1'b1;
+            endcase
+
+            case (w_funct3)
+                3'b001:
+                    invalid_intri_funct7 = w_funct7 != 7'b0000000;
+                3'b101:
+                    invalid_intri_funct7 = (w_funct7 != 7'b0000000) && (w_funct7 != 7'b0100000);
+                default:
+                    invalid_intri_funct7 = 1'b0;
+            endcase
+        end
+
+        if (w_load) begin
+            case (w_funct3)
+                3'b000, 3'b001, 3'b010, 3'b100, 3'b101:
+                    invalid_load_funct3 = 1'b1;
+        end
+    end
+
+    wire w_type_r = w_intrr;
+    wire w_type_i = w_intri || w_load || w_jalr || w_ecall || w_ebreak;
+    wire w_type_s = w_store;
+    wire w_type_b = w_branch;
+    wire w_type_j = w_jal;
+    wire w_type_u = w_auipc || w_lui;
+
+    // immediate decoding (word size)
+    wire [31:0] w_imm;
+    assign w_imm[31] = i_inst[31];
+    assign w_imm[30:20] = w_type_u ? i_inst[30:20] : i_inst[31];
+    assign w_imm[19:12] = (w_type_u || w_type_j) ? i_inst[19:12] : i_inst[31];
+    wire imm11_sext = i_inst[31] & !w_type_u;
+    wire imm11_bj = w_type_b ? i_inst[7] : i_inst[20];
+    assign w_imm[11] = (w_type_i || w_type_s) ? imm11_sext : imm11_bj;
+    assign w_imm[10:5] = i_inst[30:25] & {6{!w_type_u}};
+    assign w_imm[4:1] = ((w_type_i || w_type_j) ? i_inst[24:21] : i_inst[11:8]) & {4{!w_type_u}};
+    assign w_imm[0] = (w_type_i ? i_inst[20] : i_inst[7]) & (w_type_b || w_type_u || w_type_j);
+
+    wire w_addi = w_intri && (w_funct3 == 3'b000);
+
+    wire [1:0] load_op = w_funct3[1:0];     // 0 -> byte, 1 -> half, 2 -> word
+    wire load_func = w_funct3[2];           // 0 -> signed, 1 -> unsigned
+    wire load_unit = w_load;
+
+    wire [1:0] store_op = w_funct3[1:0];    // 0 -> byte, 1 -> half, 2 -> word
+    wire store_unit = w_store;
+
+    reg [2:0] arith_op;
+    reg [1:0] arith_func;
+    reg arith_unit;
+    always @(*) begin
+        arith_op = 3'bxxx;
+        arith_func = 2'bxx;
+        arith_unit = 1'b0;
+
+        casex ({w_funct7[0] & w_type_r, w_funct3})
+            // RV32I
+            4'b0000: begin
+                arith_op = `ARITH_OP_ADD;
+                arith_func = {1'b0, w_funct7[5]};
+                arith_unit = !w_addi; // addi doesn't go to the arith unit
+            end
+            4'b001x: begin
+                arith_op = `ARITH_OP_SLT;
+                arith_func = {1'b0, w_funct3[0]};
+                arith_unit = 1'b1;
+            end
+            // RV32M
+            // 4'b10xx: begin
+            //     arith_op = `ARITH_OP_MUL;
+            //     arith_func = w_funct3[1:0];
+            //     arith_unit = 1'b1;
+            // end
+            // 4'b110x: begin
+            //     arith_op = `ARITH_OP_DIV;
+            //     arith_func = {1'b0, w_funct3[0]};
+            //     arith_unit = 1'b1;
+            // end
+            // 4'b111x: begin
+            //     arith_op = `ARITH_OP_REM;
+            //     arith_func = {1'b0, w_funct3[0]};
+            //     arith_unit = 1'b1;
+            // end
+        endcase
+    end
+
+    reg [2:0] logic_op;
+    reg [2:0] logic_func;
+    reg logic_unit;
+    always @(*) begin
+        logic_op = 3'bxxx;
+        logic_func = 3'bxxx;
+        logic_unit = 1'b0;
+
+        casex (w_funct3)
+            3'b100: begin
+                logic_op = `LOGIC_OP_XOR;
+                logic_func = 3'b000;
+                logic_unit = 1'b1;
+            end
+            3'b110: begin
+                logic_op = `LOGIC_OP_OR;
+                logic_func = 3'b000;
+                logic_unit = 1'b1;
+            end
+            3'b111: begin
+                logic_op = `LOGIC_OP_AND;
+                logic_func = 3'b000;
+                logic_unit = 1'b1;
+            end
+            3'bx01: begin
+                logic_op = `LOGIC_OP_SHIFT;
+                logic_func = {1'b0, w_funct7[5], w_funct3[2]};
+                logic_unit = 1'b1;
+            end
+        endcase
+    end
+
+    // use pc as base for branch, jal, and auipc
+    wire branch_op = w_branch || w_jal || w_auipc;
+    // rest of bits used for branch conditions, ignored but other ops
+    wire [2:0] branch_func = w_funct3;
+    // and enable the unit for all of these ops
+    wire branch_unit = w_addi || w_branch || w_jal || w_jalr || w_lui || w_auipc;
+
+    reg [2:0] unit, op, func;
+    always @(*) begin
+        unit = 3'bxxx;
+        op = 3'bxxx;
+        func = 3'bxx;
+
+        case ({arith_unit, logic_unit, branch_unit, load_unit, store_unit})
+            5'b10000: begin
+                unit = `UNIT_ARITH;
+                op = arith_op;
+                func = {1'bx, arith_func};
+            end
+            5'b01000: begin
+                unit = `UNIT_LOGIC;
+                op = logic_op;
+                func = logic_func;
+            end
+            5'b00100: begin
+                unit = `UNIT_BRANCH;
+                op = {1'bx, branch_op};
+                func = branch_func;
+            end
+            5'b00010: begin
+                unit = `UNIT_LOAD;
+                op = {1'bx, load_op};
+                func = {2'bxx, load_func};
+            end
+            5'b00001: begin
+                unit = `UNIT_STORE;
+                op = {1'bx, store_op};
+                func = 3'bxxx;
+            end
+        endcase
+    end
+
+    assign o_bundle = {w_rs1, w_rs2, w_rd, unit, op, func, w_imm, branch_unit};
+    assign o_invalid = invalid_len || invalid_opcode ||
+                       invalid_intrr_funct3 || invalid_intrr_funct7 ||
+                       invalid_intri_funct3 || invalid_intri_funct3;
+
+`ifdef FORMAL
+    reg [31:0] f_inst;
+    assign i_inst = f_inst;
+
+    wire [6:0] f_opcode = f_inst[6:0];
+    wire [2:0] f_funct3 = f_inst[14:12];
+    wire [6:0] f_funct7 = f_inst[31:25];
+    wire f_lui   = (f_opcode == 7'b0110111);
+    wire f_auipc = (f_opcode == 7'b0010111);
+    wire f_jal   = (f_opcode == 7'b1101111);
+    wire f_jalr  = (f_opcode == 7'b1100111) && (f_funct3 == 3'b000);
+    wire f_beq   = (f_opcode == 7'b1100011) && (f_funct3 == 3'b000);
+    wire f_bne   = (f_opcode == 7'b1100011) && (f_funct3 == 3'b001);
+    wire f_blt   = (f_opcode == 7'b1100011) && (f_funct3 == 3'b100);
+    wire f_bge   = (f_opcode == 7'b1100011) && (f_funct3 == 3'b101);
+    wire f_bltu  = (f_opcode == 7'b1100011) && (f_funct3 == 3'b110);
+    wire f_bgeu  = (f_opcode == 7'b1100011) && (f_funct3 == 3'b111);
+    wire f_lb    = (f_opcode == 7'b0000011) && (f_funct3 == 3'b000);
+    wire f_lh    = (f_opcode == 7'b0000011) && (f_funct3 == 3'b001);
+    wire f_lw    = (f_opcode == 7'b0000011) && (f_funct3 == 3'b010);
+    wire f_lbu   = (f_opcode == 7'b0000011) && (f_funct3 == 3'b100);
+    wire f_lhu   = (f_opcode == 7'b0000011) && (f_funct3 == 3'b101);
+    wire f_sb    = (f_opcode == 7'b0100011) && (f_funct3 == 3'b000);
+    wire f_sh    = (f_opcode == 7'b0100011) && (f_funct3 == 3'b001);
+    wire f_sw    = (f_opcode == 7'b0100011) && (f_funct3 == 3'b010);
+    wire f_addi  = (f_opcode == 7'b0010011) && (f_funct3 == 3'b000);
+    wire f_slti  = (f_opcode == 7'b0010011) && (f_funct3 == 3'b010);
+    wire f_sltiu = (f_opcode == 7'b0010011) && (f_funct3 == 3'b011);
+    wire f_xori  = (f_opcode == 7'b0010011) && (f_funct3 == 3'b100);
+    wire f_ori   = (f_opcode == 7'b0010011) && (f_funct3 == 3'b110);
+    wire f_andi  = (f_opcode == 7'b0010011) && (f_funct3 == 3'b111);
+    wire f_slli  = (f_opcode == 7'b0010011) && (f_funct3 == 3'b001) && (f_funct7 == 7'b0000000);
+    wire f_srli  = (f_opcode == 7'b0010011) && (f_funct3 == 3'b101) && (f_funct7 == 7'b0000000);
+    wire f_srai  = (f_opcode == 7'b0010011) && (f_funct3 == 3'b101) && (f_funct7 == 7'b0100000);
+    wire f_add   = (f_opcode == 7'b0110011) && (f_funct3 == 3'b000) && (f_funct7 == 7'b0000000);
+    wire f_sub   = (f_opcode == 7'b0110011) && (f_funct3 == 3'b000) && (f_funct7 == 7'b0100000);
+    wire f_sll   = (f_opcode == 7'b0110011) && (f_funct3 == 3'b001) && (f_funct7 == 7'b0000000);
+    wire f_slt   = (f_opcode == 7'b0110011) && (f_funct3 == 3'b010) && (f_funct7 == 7'b0000000);
+    wire f_sltu  = (f_opcode == 7'b0110011) && (f_funct3 == 3'b011) && (f_funct7 == 7'b0000000);
+    wire f_xor   = (f_opcode == 7'b0110011) && (f_funct3 == 3'b100) && (f_funct7 == 7'b0000000);
+    wire f_srl   = (f_opcode == 7'b0110011) && (f_funct3 == 3'b101) && (f_funct7 == 7'b0000000);
+    wire f_sra   = (f_opcode == 7'b0110011) && (f_funct3 == 3'b101) && (f_funct7 == 7'b0100000);
+    wire f_or    = (f_opcode == 7'b0110011) && (f_funct3 == 3'b110) && (f_funct7 == 7'b0000000);
+    wire f_and   = (f_opcode == 7'b0110011) && (f_funct3 == 3'b111) && (f_funct7 == 7'b0000000);
+    wire f_ecall = f_inst == 32'b000000000000_00000_000_00000_1110011;
+    wire f_ebreak = f_inst == 32'b000000000001_00000_000_00000_1110011;
+
+    wire f_valid_inst = f_lui || f_auipc || f_jal || f_jalr ||
+                        f_beq || f_bne || f_blt || f_bge || f_bltu || f_bgeu ||
+                        f_lb || f_lh || f_lw || f_lbu || f_lhu || f_sb || f_sh || f_sw ||
+                        f_addi || f_slti || f_sltiu || f_xori || f_ori || f_andi ||
+                        f_slli || f_srli || f_srai ||
+                        f_add || f_sub || f_sll || f_slt || f_sltu || f_xor ||
+                        f_srl || f_sra || f_or || f_and ||
+                        f_ecall || f_ebreak;
+
+    always @(*) begin
+        if (f_valid_inst) begin
+            assert(!o_invalid);
+        end else begin
+            assert(o_invalid);
+        end
+    end
+`endif
+endmodule

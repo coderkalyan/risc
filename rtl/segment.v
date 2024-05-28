@@ -2,23 +2,23 @@
 
 // part of the decode logic, generates validity signals for each of the
 // decoders based on compression bits
-localparam WORD = 32;
-localparam HALF = 16;
 
 module segment #(
+    parameter WORD = 32,
+    parameter HALF = 16,
     parameter WIDTH = 4,            // number of word length instructions
     parameter BITS = WORD * WIDTH,
     parameter DWIDTH = 2 * WIDTH    // number of compressed instructions
 ) (
-    input wire [BITS - 1:0] i_packet,
-    output wire [DWIDTH - 1:0] o_valid,
+    input wire [0:BITS - 1] i_packet,
+    output wire [0:DWIDTH - 1] o_valid,
     output reg [$clog2(DWIDTH + 1) - 1:0] o_valid_count
 );
-    wire [DWIDTH - 1:0] compressed;
+    wire [0:DWIDTH - 1] compressed;
     genvar i;
     generate
         for (i = 0; i < DWIDTH; i = i + 1)
-            assign compressed[i] = i_packet[i * HALF + 1:i * HALF] != 2'b11;
+            assign compressed[i] = i_packet[i * HALF + 6:i * HALF + 7] != 2'b11;
     endgenerate
 
     assign o_valid[0] = 1'b1;

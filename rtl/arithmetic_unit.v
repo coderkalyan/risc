@@ -7,19 +7,22 @@ module arithmetic_unit #(
     input wire i_rst_n,
     input wire [2:0] i_op,
     input wire [1:0] i_func,
-    input wire [XLEN - 1:0] i_op1,
-    input wire [XLEN - 1:0] i_op2,
+    input wire [XLEN - 1:0] i_rs1,
+    input wire [XLEN - 1:0] i_rs2,
     input wire i_start,
     output wire [XLEN - 1:0] o_result,
     output wire o_valid
 );
-    localparam STATE_IDLE = 1'b0;
-    localparam STATE_DONE = 1'b1;
+    wire op2_sign = i_func[0];
+    wire [XLEN - 1:0] add_result = i_rs1 + (i_rs2 ^ {XLEN{op2_sign}}) + op2_sign;
+
+    localparam STATE_INVALID = 1'b0;
+    localparam STATE_VALID = 1'b1;
 
     reg state, next_state;
     always @(posedge i_clk, negedge i_rst_n) begin
         if (!i_rst_n)
-            state <= STATE_IDLE;
+            state <= STATE_INVALID;
         else
             state <= next_state;
     end
@@ -31,35 +34,35 @@ module arithmetic_unit #(
         else if (i_start)
             op <= i_op;
     end
-    
-    reg next_valid, op2_sign;
+
     always @(*) begin
         next_state = state;
-        next_valid = 1'b0;
-        op2_sign = 1'b0;
 
         case (state)
-            STATE_IDLE: begin
+            STATE_INVALID: begin
                 if (i_start) begin
-                    // TODO: support other operations
-                    op2_sign = i_func[0];
-                    next_state = STATE_IDLE;
-                    next_valid = 1'b1;
+                    case (i_op)
+                        `ARITH_OP_ADD: next_state = STATE_VALID;
+                    endcase
                 end
             end
-            // STATE_DONE: begin
-            //     valid = 1'b1;
-            //     next_state = STATE_IDLE;
-            // end
+            STATE_VALID: begin
+                if (i_start) begin
+                    case (i_op)
+                        `ARITH_OP_ADD: next_state = STATE_VALID;
+                    endcase
+                end else begin
+                    next_state = STATE_INVALID;
+                end
+            end
         endcase
     end
 
-    wire [XLEN - 1:0] add_result = i_op1 + (i_op2 ^ {XLEN{op2_sign}}) + op2_sign;
 
     reg [XLEN - 1:0] result;
     always @(posedge i_clk, negedge i_rst_n) begin
         if (!i_rst_n)
-            result <= 0;
+            result <= {XLEN{1'b0}};
         else begin
             case (op)
                 `ARITH_OP_ADD: result <= add_result;
@@ -68,14 +71,6 @@ module arithmetic_unit #(
         end
     end
 
-    reg valid;
-    always @(posedge i_clk, negedge i_rst_n) begin
-        if (!i_rst_n)
-            valid <= 1'b0;
-        else
-            valid <= next_valid;
-    end
-
-    assign o_valid = valid;
+    assign o_valid = state == STATE_VALID;
     assign o_result = result;
 endmodule
