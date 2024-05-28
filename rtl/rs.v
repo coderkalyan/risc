@@ -11,18 +11,28 @@ module rs #(
 ) (
     input wire i_clk,
     input wire i_rst_n,
+    // queue up to 4 instruction bundles to be inserted into the reservation
+    // station slots, in order (if bundle x stalls, x + 1 .. 4 cannot continue)
+    // due to in order dispatch
     input wire [BWIDTH - 1:0] i_bundle0,
     input wire [BWIDTH - 1:0] i_bundle1,
     input wire [BWIDTH - 1:0] i_bundle2,
     input wire [BWIDTH - 1:0] i_bundle3,
-    input wire [1:0] i_insert_count,
+    input wire [2:0] i_insert_count,
+    // each execution unit can up
     input wire [6 * UNITS - 1:0] i_rdy_regs,
-    output wire [BWIDTH - 1:0] o_rdy,
-    output wire [BWIDTH - 1:0] o_asb1_bundle,
-    output wire [BWIDTH - 1:0] o_asb2_bundle,
-    output wire [BWIDTH - 1:0] o_logic_bundle,
-    output wire [BWIDTH - 1:0] o_load_bundle,
-    output wire [BWIDTH - 1:0] o_store_bundle
+    // each bit marks if the corresponding execution unit is ready to receive
+    // a new workload, so the corresponding bundle will be evicted from the
+    // station
+    input wire [UNITS - 1:0] i_evict_en,
+    // these bundles are evicted from the rs
+    output reg [BWIDTH - 1:0] o_asb1_bundle,
+    output reg [BWIDTH - 1:0] o_asb2_bundle,
+    output reg [BWIDTH - 1:0] o_logic_bundle,
+    output reg [BWIDTH - 1:0] o_load_bundle,
+    output reg [BWIDTH - 1:0] o_store_bundle,
+    // hot if both eviction requested (i_evict_en) and slot full and ready
+    output reg [UNITS - 1:0] o_evict_valid,
 );
     localparam RBITS = 5;
 
@@ -189,15 +199,22 @@ module rs #(
         end
     end
 
-    generate
-        for (uindex = 0; uindex < UNITS; uindex = uindex + 1) begin
-            assign o_rdy[uindex] = rdy1[uindex] && rdy2[uindex];
-        end
-    endgenerate
+    // generate
+    //     for (uindex = 0; uindex < UNITS; uindex = uindex + 1) begin
+    //         assign o_rdy[uindex] = rdy1[uindex] && rdy2[uindex];
+    //     end
+    // endgenerate
+    //
+    // assign o_asb1_bundle = bundles[0];
+    // assign o_asb2_bundle = bundles[1];
+    // assign o_logic_bundle = bundles[2];
+    // assign o_load_bundle = bundles[3];
+    // assign o_store_bundle = bundles[4];
+    `ifdef FORMAL
+    reg f_past_valid;
+    initial f_past_valid <= 1'b0;
+    always @(posedge i_clk) f_past_valid <= 1'b1;
 
-    assign o_asb1_bundle = bundles[0];
-    assign o_asb2_bundle = bundles[1];
-    assign o_logic_bundle = bundles[2];
-    assign o_load_bundle = bundles[3];
-    assign o_store_bundle = bundles[4];
+
+    `endif
 endmodule
