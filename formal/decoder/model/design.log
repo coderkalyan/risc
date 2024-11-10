@@ -1,0 +1,429 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.39 (git sha1 00338082b, g++ 13.2.1 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -ffile-prefix-map=/build/yosys/src=/usr/src/debug/yosys -fPIC -Os)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: decoder.v
+Parsing formal SystemVerilog input from `decoder.v' to AST representation.
+Storing AST representation for module `$abstract\decoder'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\decoder'.
+Generating RTLIL representation for module `\decoder'.
+
+2.2.1. Analyzing design hierarchy..
+Top module:  \decoder
+
+2.2.2. Analyzing design hierarchy..
+Top module:  \decoder
+Removing unused module `$abstract\decoder'.
+Removed 1 unused modules.
+Module decoder directly or indirectly contains formal properties -> setting "keep" attribute.
+
+2.3. Executing PROC pass (convert processes to netlists).
+
+2.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$decoder.v:331$241 in module decoder.
+Removed 2 dead cases from process $proc$decoder.v:67$14 in module decoder.
+Marked 6 switch rules as full_case in process $proc$decoder.v:67$14 in module decoder.
+Removed a total of 2 dead cases.
+
+2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 29 redundant assignments.
+Promoted 34 assignments to connections.
+
+2.3.4. Executing PROC_INIT pass (extract init attributes).
+
+2.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~7 debug messages>
+
+2.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\decoder.$proc$decoder.v:331$241'.
+     1/38: $1\i[31:0]
+     2/38: $cover$decoder.v:342$415_EN
+     3/38: $cover$decoder.v:342$411_EN
+     4/38: $cover$decoder.v:342$407_EN
+     5/38: $cover$decoder.v:342$403_EN
+     6/38: $cover$decoder.v:342$399_EN
+     7/38: $cover$decoder.v:342$395_EN
+     8/38: $cover$decoder.v:342$391_EN
+     9/38: $cover$decoder.v:342$387_EN
+    10/38: $cover$decoder.v:342$383_EN
+    11/38: $cover$decoder.v:342$379_EN
+    12/38: $cover$decoder.v:342$375_EN
+    13/38: $cover$decoder.v:342$371_EN
+    14/38: $cover$decoder.v:342$367_EN
+    15/38: $cover$decoder.v:342$363_EN
+    16/38: $cover$decoder.v:342$359_EN
+    17/38: $cover$decoder.v:342$355_EN
+    18/38: $cover$decoder.v:342$351_EN
+    19/38: $cover$decoder.v:342$347_EN
+    20/38: $cover$decoder.v:342$343_EN
+    21/38: $cover$decoder.v:342$339_EN
+    22/38: $cover$decoder.v:342$335_EN
+    23/38: $cover$decoder.v:342$331_EN
+    24/38: $cover$decoder.v:342$327_EN
+    25/38: $cover$decoder.v:342$323_EN
+    26/38: $cover$decoder.v:342$319_EN
+    27/38: $cover$decoder.v:342$315_EN
+    28/38: $cover$decoder.v:342$311_EN
+    29/38: $cover$decoder.v:342$307_EN
+    30/38: $cover$decoder.v:342$303_EN
+    31/38: $cover$decoder.v:342$299_EN
+    32/38: $cover$decoder.v:342$295_EN
+    33/38: $cover$decoder.v:342$291_EN
+    34/38: $assert$decoder.v:339$287_EN
+    35/38: $assert$decoder.v:338$281_EN
+    36/38: $assert$decoder.v:337$263_EN
+    37/38: $assert$decoder.v:335$251_EN
+    38/38: $assert$decoder.v:334$244_EN
+Creating decoders for process `\decoder.$proc$decoder.v:67$14'.
+     1/22: $1\func[2:0] [2]
+     2/22: $1\op[2:0] [1:0]
+     3/22: $3\func[2:0] [0]
+     4/22: $3\func[2:0] [1]
+     5/22: $3\op[2:0]
+     6/22: $3\unit[2:0]
+     7/22: $6\valid[0:0]
+     8/22: $1\func[2:0] [0]
+     9/22: $2\func[2:0] [0]
+    10/22: $2\func[2:0] [1]
+    11/22: $2\op[2:0]
+    12/22: $2\unit[2:0]
+    13/22: $5\valid[0:0]
+    14/22: $1\func[2:0] [1]
+    15/22: $1\op[2:0] [2]
+    16/22: $3\func[2:0] [2]
+    17/22: $3\valid[0:0]
+    18/22: $4\valid[0:0]
+    19/22: $2\func[2:0] [2]
+    20/22: $2\valid[0:0]
+    21/22: $1\unit[2:0]
+    22/22: $1\valid[0:0]
+
+2.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+Latch inferred for signal `\decoder.\i' from process `\decoder.$proc$decoder.v:331$241': $auto$proc_dlatch.cc:433:proc_dlatch$1062
+No latch inferred for signal `\decoder.\valid' from process `\decoder.$proc$decoder.v:67$14'.
+No latch inferred for signal `\decoder.\unit' from process `\decoder.$proc$decoder.v:67$14'.
+No latch inferred for signal `\decoder.\op' from process `\decoder.$proc$decoder.v:67$14'.
+No latch inferred for signal `\decoder.\func' from process `\decoder.$proc$decoder.v:67$14'.
+
+2.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\decoder.$proc$decoder.v:331$241'.
+Removing empty process `decoder.$proc$decoder.v:331$241'.
+Found and cleaned up 6 empty switches in `\decoder.$proc$decoder.v:67$14'.
+Removing empty process `decoder.$proc$decoder.v:67$14'.
+Cleaned up 7 empty switches.
+
+2.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder.
+<suppressed ~179 debug messages>
+
+2.4. Executing FUTURE pass.
+
+2.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder.
+
+2.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder..
+Removed 2 unused cells and 347 unused wires.
+<suppressed ~6 debug messages>
+
+2.7. Executing CHECK pass (checking for obvious problems).
+Checking module decoder...
+Found and reported 0 problems.
+
+2.8. Executing OPT pass (performing simple optimizations).
+
+2.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder.
+
+2.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder'.
+<suppressed ~582 debug messages>
+Removed a total of 194 cells.
+
+2.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \decoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$1004.
+    dead port 2/2 on $mux $procmux$623.
+    dead port 1/2 on $mux $procmux$625.
+    dead port 1/2 on $mux $procmux$627.
+    dead port 1/2 on $mux $procmux$629.
+    dead port 1/2 on $mux $procmux$631.
+    dead port 2/2 on $mux $procmux$645.
+    dead port 1/2 on $mux $procmux$647.
+    dead port 1/2 on $mux $procmux$649.
+    dead port 1/2 on $mux $procmux$651.
+    dead port 1/2 on $mux $procmux$653.
+    dead port 2/2 on $mux $procmux$670.
+    dead port 1/2 on $mux $procmux$672.
+    dead port 1/2 on $mux $procmux$674.
+    dead port 1/2 on $mux $procmux$676.
+    dead port 1/2 on $mux $procmux$678.
+    dead port 2/2 on $mux $procmux$695.
+    dead port 1/2 on $mux $procmux$697.
+    dead port 1/2 on $mux $procmux$699.
+    dead port 1/2 on $mux $procmux$701.
+    dead port 1/2 on $mux $procmux$703.
+    dead port 2/2 on $mux $procmux$720.
+    dead port 1/2 on $mux $procmux$722.
+    dead port 1/2 on $mux $procmux$724.
+    dead port 1/2 on $mux $procmux$726.
+    dead port 1/2 on $mux $procmux$728.
+    dead port 2/2 on $mux $procmux$764.
+    dead port 1/2 on $mux $procmux$766.
+    dead port 1/2 on $mux $procmux$768.
+    dead port 1/2 on $mux $procmux$770.
+    dead port 2/2 on $mux $procmux$784.
+    dead port 1/2 on $mux $procmux$786.
+    dead port 1/2 on $mux $procmux$788.
+    dead port 1/2 on $mux $procmux$790.
+    dead port 2/2 on $mux $procmux$808.
+    dead port 1/2 on $mux $procmux$810.
+    dead port 1/2 on $mux $procmux$812.
+    dead port 1/2 on $mux $procmux$814.
+    dead port 2/2 on $mux $procmux$832.
+    dead port 1/2 on $mux $procmux$834.
+    dead port 1/2 on $mux $procmux$836.
+    dead port 1/2 on $mux $procmux$838.
+    dead port 2/2 on $mux $procmux$856.
+    dead port 1/2 on $mux $procmux$858.
+    dead port 1/2 on $mux $procmux$860.
+    dead port 1/2 on $mux $procmux$862.
+    dead port 2/2 on $mux $procmux$921.
+    dead port 1/2 on $mux $procmux$923.
+    dead port 1/2 on $mux $procmux$925.
+    dead port 1/2 on $mux $procmux$927.
+    dead port 1/2 on $mux $procmux$929.
+    dead port 2/2 on $mux $procmux$944.
+    dead port 1/2 on $mux $procmux$946.
+    dead port 2/2 on $mux $procmux$960.
+    dead port 1/2 on $mux $procmux$962.
+    dead port 1/2 on $mux $procmux$964.
+    dead port 2/2 on $mux $procmux$982.
+    dead port 1/2 on $mux $procmux$984.
+    dead port 1/2 on $mux $procmux$986.
+    dead port 1/2 on $mux $procmux$988.
+Removed 60 multiplexer ports.
+<suppressed ~51 debug messages>
+
+2.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \decoder.
+    New ctrl vector for $pmux cell $procmux$618: { $eq$decoder.v:204$30_Y $procmux$621_CMP $auto$opt_reduce.cc:134:opt_pmux$1064 }
+    New ctrl vector for $pmux cell $procmux$640: { $auto$opt_reduce.cc:134:opt_pmux$1068 $auto$opt_reduce.cc:134:opt_pmux$1066 }
+    New ctrl vector for $pmux cell $procmux$662: { $eq$decoder.v:273$71_Y $auto$opt_reduce.cc:134:opt_pmux$1074 $auto$opt_reduce.cc:134:opt_pmux$1072 $auto$opt_reduce.cc:134:opt_pmux$1070 }
+    New ctrl vector for $pmux cell $procmux$687: { $auto$opt_reduce.cc:134:opt_pmux$1078 $auto$opt_reduce.cc:134:opt_pmux$1076 }
+    New ctrl vector for $pmux cell $procmux$712: { $auto$opt_reduce.cc:134:opt_pmux$1082 $auto$opt_reduce.cc:134:opt_pmux$1080 }
+    New ctrl vector for $pmux cell $procmux$759: { $eq$decoder.v:204$30_Y $procmux$621_CMP $auto$opt_reduce.cc:134:opt_pmux$1084 }
+    New ctrl vector for $pmux cell $procmux$780: { $eq$decoder.v:204$30_Y $auto$opt_reduce.cc:134:opt_pmux$1086 }
+    New ctrl vector for $pmux cell $procmux$800: { $eq$decoder.v:273$71_Y $auto$opt_reduce.cc:134:opt_pmux$1092 $auto$opt_reduce.cc:134:opt_pmux$1090 $auto$opt_reduce.cc:134:opt_pmux$1088 }
+    New ctrl vector for $pmux cell $procmux$824: { $auto$opt_reduce.cc:134:opt_pmux$1096 $auto$opt_reduce.cc:134:opt_pmux$1094 }
+    New ctrl vector for $pmux cell $procmux$848: { $auto$opt_reduce.cc:134:opt_pmux$1098 $eq$decoder.v:272$68_Y $eq$decoder.v:274$74_Y }
+  Optimizing cells in module \decoder.
+Performed a total of 10 changes.
+
+2.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder'.
+<suppressed ~165 debug messages>
+Removed a total of 55 cells.
+
+2.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder..
+Removed 0 unused cells and 290 unused wires.
+<suppressed ~1 debug messages>
+
+2.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder.
+
+2.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \decoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~19 debug messages>
+
+2.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \decoder.
+Performed a total of 0 changes.
+
+2.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder'.
+Removed a total of 0 cells.
+
+2.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder..
+
+2.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder.
+
+2.8.14. Finished OPT passes. (There is nothing left to do.)
+
+2.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 5) from port B of cell decoder.$eq$decoder.v:55$5 ($eq).
+Removed top 2 bits (of 5) from port B of cell decoder.$eq$decoder.v:56$6 ($eq).
+Removed top 1 bits (of 5) from port B of cell decoder.$eq$decoder.v:57$7 ($eq).
+Removed top 2 bits (of 5) from port B of cell decoder.$eq$decoder.v:60$10 ($eq).
+Removed top 1 bits (of 5) from port B of cell decoder.$eq$decoder.v:61$11 ($eq).
+Removed top 1 bits (of 7) from port B of cell decoder.$eq$decoder.v:139$17 ($eq).
+Removed top 1 bits (of 7) from port B of cell decoder.$eq$decoder.v:267$58 ($eq).
+Removed top 2 bits (of 7) from port B of cell decoder.$eq$decoder.v:268$59 ($eq).
+Removed top 2 bits (of 3) from port B of cell decoder.$eq$decoder.v:272$68 ($eq).
+Removed top 5 bits (of 7) from port B of cell decoder.$eq$decoder.v:277$82 ($eq).
+Removed top 1 bits (of 3) from port B of cell decoder.$eq$decoder.v:279$89 ($eq).
+Removed top 1 bits (of 7) from port B of cell decoder.$eq$decoder.v:282$97 ($eq).
+Removed top 2 bits (of 7) from port B of cell decoder.$eq$decoder.v:285$106 ($eq).
+Removed top 1 bits (of 3) from port B of cell decoder.$eq$decoder.v:287$113 ($eq).
+Removed top 1 bits (of 7) from port B of cell decoder.$eq$decoder.v:294$139 ($eq).
+Removed top 25 bits (of 32) from port B of cell decoder.$eq$decoder.v:304$189 ($eq).
+Removed top 11 bits (of 32) from port B of cell decoder.$eq$decoder.v:305$190 ($eq).
+Removed top 2 bits (of 3) from port B of cell decoder.$eq$decoder.v:319$231 ($eq).
+Removed top 1 bits (of 3) from port B of cell decoder.$eq$decoder.v:321$233 ($eq).
+Removed top 2 bits (of 3) from port B of cell decoder.$eq$decoder.v:323$235 ($eq).
+Removed top 1 bits (of 3) from port B of cell decoder.$eq$decoder.v:324$236 ($eq).
+Removed top 1 bits (of 3) from port B of cell decoder.$eq$decoder.v:328$240 ($eq).
+Removed top 30 bits (of 32) from port Y of cell decoder.$add$decoder.v:334$245 ($add).
+Removed top 30 bits (of 32) from port A of cell decoder.$add$decoder.v:334$246 ($add).
+Removed top 29 bits (of 32) from port Y of cell decoder.$add$decoder.v:334$246 ($add).
+Removed top 29 bits (of 32) from port A of cell decoder.$add$decoder.v:334$247 ($add).
+Removed top 28 bits (of 32) from port Y of cell decoder.$add$decoder.v:334$247 ($add).
+Removed top 28 bits (of 32) from port A of cell decoder.$add$decoder.v:334$248 ($add).
+Removed top 27 bits (of 32) from port Y of cell decoder.$add$decoder.v:334$248 ($add).
+Removed top 27 bits (of 32) from port A of cell decoder.$add$decoder.v:334$249 ($add).
+Removed top 26 bits (of 32) from port Y of cell decoder.$add$decoder.v:334$249 ($add).
+Removed top 26 bits (of 32) from port A of cell decoder.$eq$decoder.v:334$250 ($eq).
+Removed top 31 bits (of 32) from port B of cell decoder.$eq$decoder.v:334$250 ($eq).
+Removed top 30 bits (of 32) from port Y of cell decoder.$add$decoder.v:335$252 ($add).
+Removed top 30 bits (of 32) from port A of cell decoder.$add$decoder.v:335$253 ($add).
+Removed top 29 bits (of 32) from port Y of cell decoder.$add$decoder.v:335$253 ($add).
+Removed top 29 bits (of 32) from port A of cell decoder.$add$decoder.v:335$254 ($add).
+Removed top 28 bits (of 32) from port Y of cell decoder.$add$decoder.v:335$254 ($add).
+Removed top 28 bits (of 32) from port A of cell decoder.$add$decoder.v:335$255 ($add).
+Removed top 27 bits (of 32) from port Y of cell decoder.$add$decoder.v:335$255 ($add).
+Removed top 27 bits (of 32) from port A of cell decoder.$add$decoder.v:335$256 ($add).
+Removed top 26 bits (of 32) from port Y of cell decoder.$add$decoder.v:335$256 ($add).
+Removed top 26 bits (of 32) from port A of cell decoder.$add$decoder.v:335$257 ($add).
+Removed top 25 bits (of 32) from port Y of cell decoder.$add$decoder.v:335$257 ($add).
+Removed top 25 bits (of 32) from port A of cell decoder.$add$decoder.v:335$258 ($add).
+Removed top 24 bits (of 32) from port Y of cell decoder.$add$decoder.v:335$258 ($add).
+Removed top 24 bits (of 32) from port A of cell decoder.$add$decoder.v:335$259 ($add).
+Removed top 23 bits (of 32) from port Y of cell decoder.$add$decoder.v:335$259 ($add).
+Removed top 23 bits (of 32) from port A of cell decoder.$add$decoder.v:335$260 ($add).
+Removed top 22 bits (of 32) from port Y of cell decoder.$add$decoder.v:335$260 ($add).
+Removed top 22 bits (of 32) from port A of cell decoder.$add$decoder.v:335$261 ($add).
+Removed top 21 bits (of 32) from port Y of cell decoder.$add$decoder.v:335$261 ($add).
+Removed top 21 bits (of 32) from port A of cell decoder.$eq$decoder.v:335$262 ($eq).
+Removed top 31 bits (of 32) from port B of cell decoder.$eq$decoder.v:335$262 ($eq).
+Removed top 4 bits (of 5) from port B of cell decoder.$eq$decoder.v:342$297 ($eq).
+Removed top 3 bits (of 5) from port B of cell decoder.$eq$decoder.v:342$301 ($eq).
+Removed top 3 bits (of 5) from port B of cell decoder.$eq$decoder.v:342$305 ($eq).
+Removed top 2 bits (of 5) from port B of cell decoder.$eq$decoder.v:342$309 ($eq).
+Removed top 2 bits (of 5) from port B of cell decoder.$eq$decoder.v:342$313 ($eq).
+Removed top 2 bits (of 5) from port B of cell decoder.$eq$decoder.v:342$317 ($eq).
+Removed top 2 bits (of 5) from port B of cell decoder.$eq$decoder.v:342$321 ($eq).
+Removed top 1 bits (of 5) from port B of cell decoder.$eq$decoder.v:342$325 ($eq).
+Removed top 1 bits (of 5) from port B of cell decoder.$eq$decoder.v:342$329 ($eq).
+Removed top 1 bits (of 5) from port B of cell decoder.$eq$decoder.v:342$333 ($eq).
+Removed top 1 bits (of 5) from port B of cell decoder.$eq$decoder.v:342$337 ($eq).
+Removed top 1 bits (of 5) from port B of cell decoder.$eq$decoder.v:342$341 ($eq).
+Removed top 1 bits (of 5) from port B of cell decoder.$eq$decoder.v:342$345 ($eq).
+Removed top 1 bits (of 5) from port B of cell decoder.$eq$decoder.v:342$349 ($eq).
+Removed top 1 bits (of 5) from port B of cell decoder.$eq$decoder.v:342$353 ($eq).
+Removed top 1 bits (of 2) from port B of cell decoder.$procmux$621_CMP0 ($eq).
+Removed top 30 bits (of 32) from wire decoder.$add$decoder.v:334$245_Y.
+Removed top 29 bits (of 32) from wire decoder.$add$decoder.v:334$246_Y.
+Removed top 28 bits (of 32) from wire decoder.$add$decoder.v:334$247_Y.
+Removed top 29 bits (of 32) from wire decoder.$add$decoder.v:335$253_Y.
+
+2.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+2.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.12. Executing OPT pass (performing simple optimizations).
+
+2.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder.
+
+2.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder'.
+Removed a total of 0 cells.
+
+2.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder..
+
+2.12.4. Finished fast OPT passes.
+
+2.13. Printing statistics.
+
+=== decoder ===
+
+   Number of wires:                360
+   Number of wire bits:            942
+   Number of public wires:          91
+   Number of public wire bits:     285
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                413
+     $add                           15
+     $and                            4
+     $check                         66
+     $eq                            70
+     $logic_and                     84
+     $logic_not                     10
+     $logic_or                      72
+     $mux                           73
+     $ne                             1
+     $pmux                           7
+     $reduce_or                     11
+
+2.14. Executing CHECK pass (checking for obvious problems).
+Checking module decoder...
+Found and reported 0 problems.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \decoder
+
+3.2. Analyzing design hierarchy..
+Top module:  \decoder
+Removed 0 unused modules.
+Module decoder directly or indirectly contains formal properties -> setting "keep" attribute.
+
+4. Executing jny backend.
+
+5. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: 050f289794, CPU: user 0.45s system 0.02s, MEM: 26.81 MB peak
+Yosys 0.39 (git sha1 00338082b, g++ 13.2.1 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -ffile-prefix-map=/build/yosys/src=/usr/src/debug/yosys -fPIC -Os)
+Time spent: 22% 6x opt_expr (0 sec), 20% 5x opt_clean (0 sec), ...

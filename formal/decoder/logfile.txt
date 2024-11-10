@@ -1,0 +1,28 @@
+SBY 20:27:34 [decoder] Removing directory '/home/kalyan/Documents/risc/formal/decoder'.
+SBY 20:27:34 [decoder] Copy '/home/kalyan/Documents/risc/rtl/decoder.v' to '/home/kalyan/Documents/risc/formal/decoder/src/decoder.v'.
+SBY 20:27:34 [decoder] engine_0: smtbmc
+SBY 20:27:34 [decoder] base: starting process "cd decoder/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 20:27:34 [decoder] base: finished (returncode=0)
+SBY 20:27:34 [decoder] prep: starting process "cd decoder/model; yosys -ql design_prep.log design_prep.ys"
+SBY 20:27:34 [decoder] prep: finished (returncode=0)
+SBY 20:27:34 [decoder] smt2: starting process "cd decoder/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 20:27:34 [decoder] smt2: finished (returncode=0)
+SBY 20:27:34 [decoder] engine_0: starting process "cd decoder; yosys-smtbmc --presat --unroll --noprogress -t 1  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Solver: yices
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  BMC failed!
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Assert failed in decoder: decoder.v:338.13-338.76 (_witness_.check_assert_decoder_v_338_281)
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Status: failed
+SBY 20:27:35 [decoder] engine_0: finished (returncode=1)
+SBY 20:27:35 [decoder] engine_0: Status returned by engine: FAIL
+SBY 20:27:35 [decoder] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 20:27:35 [decoder] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 20:27:35 [decoder] summary: engine_0 (smtbmc) returned FAIL
+SBY 20:27:35 [decoder] summary: counterexample trace: decoder/engine_0/trace.vcd
+SBY 20:27:35 [decoder] summary:   failed assertion decoder._witness_.check_assert_decoder_v_338_281 at decoder.v:338.13-338.76 in step 0
+SBY 20:27:35 [decoder] DONE (FAIL, rc=2)

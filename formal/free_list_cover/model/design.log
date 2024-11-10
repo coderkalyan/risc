@@ -1,0 +1,395 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.39 (git sha1 00338082b, g++ 13.2.1 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -ffile-prefix-map=/build/yosys/src=/usr/src/debug/yosys -fPIC -Os)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: free_list.v
+Parsing formal SystemVerilog input from `free_list.v' to AST representation.
+free_list.v:79: Warning: SystemVerilog does not allow "restrict" without "property".
+free_list.v:80: Warning: SystemVerilog does not allow "restrict" without "property".
+free_list.v:87: Warning: SystemVerilog does not allow "restrict" without "property".
+free_list.v:88: Warning: SystemVerilog does not allow "restrict" without "property".
+free_list.v:89: Warning: SystemVerilog does not allow "restrict" without "property".
+free_list.v:90: Warning: SystemVerilog does not allow "restrict" without "property".
+Storing AST representation for module `$abstract\free_list'.
+Storing AST representation for module `$abstract\encoder_6bit'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\free_list'.
+Generating RTLIL representation for module `\free_list'.
+
+2.2.1. Analyzing design hierarchy..
+Top module:  \free_list
+
+2.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\encoder_6bit'.
+Generating RTLIL representation for module `\encoder_6bit'.
+
+2.2.3. Analyzing design hierarchy..
+Top module:  \free_list
+Used module:     \encoder_6bit
+
+2.2.4. Analyzing design hierarchy..
+Top module:  \free_list
+Used module:     \encoder_6bit
+Removing unused module `$abstract\encoder_6bit'.
+Removing unused module `$abstract\free_list'.
+Removed 2 unused modules.
+Module free_list directly or indirectly contains formal properties -> setting "keep" attribute.
+Warning: Resizing cell port free_list.enc3.i_vec from 48 bits to 64 bits.
+Warning: Resizing cell port free_list.enc2.i_vec from 48 bits to 64 bits.
+Warning: Resizing cell port free_list.enc1.i_vec from 48 bits to 64 bits.
+Warning: Resizing cell port free_list.enc0.i_vec from 48 bits to 64 bits.
+
+2.3. Executing PROC pass (convert processes to netlists).
+
+2.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$free_list.v:114$77 in module encoder_6bit.
+Marked 1 switch rules as full_case in process $proc$free_list.v:94$44 in module free_list.
+Marked 1 switch rules as full_case in process $proc$free_list.v:49$31 in module free_list.
+Removed a total of 0 dead cases.
+
+2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 12 redundant assignments.
+Promoted 15 assignments to connections.
+
+2.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\free_list.$proc$free_list.v:0$76'.
+  Set init value: \f_past_valid = 1'0
+
+2.3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \i_rst_n in `\free_list.$proc$free_list.v:49$31'.
+
+2.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~5 debug messages>
+
+2.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\encoder_6bit.$proc$free_list.v:114$77'.
+     1/1: $1\o_code[5:0]
+Creating decoders for process `\free_list.$proc$free_list.v:0$76'.
+Creating decoders for process `\free_list.$proc$free_list.v:0$73'.
+Creating decoders for process `\free_list.$proc$free_list.v:0$70'.
+Creating decoders for process `\free_list.$proc$free_list.v:94$44'.
+     1/4: $assert$free_list.v:102$61_EN
+     2/4: $assert$free_list.v:101$60_EN
+     3/4: $assert$free_list.v:97$56_EN
+     4/4: $assert$free_list.v:96$54_EN
+Creating decoders for process `\free_list.$proc$free_list.v:86$36'.
+Creating decoders for process `\free_list.$proc$free_list.v:84$35'.
+Creating decoders for process `\free_list.$proc$free_list.v:49$31'.
+     1/7: $0\o_req_count[2:0]
+     2/7: $0\o_req3[5:0]
+     3/7: $0\o_req2[5:0]
+     4/7: $0\o_req1[5:0]
+     5/7: $0\o_req0[5:0]
+     6/7: $0\o_avail_count[5:0]
+     7/7: $0\free[47:0]
+
+2.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\encoder_6bit.\o_code' from process `\encoder_6bit.$proc$free_list.v:114$77'.
+
+2.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\free_list.$past$free_list.v:95$1$0' using process `\free_list.$proc$free_list.v:94$44'.
+  created $dff cell `$procdff$233' with positive edge clock.
+Creating register for signal `\free_list.$past$free_list.v:99$2$0' using process `\free_list.$proc$free_list.v:94$44'.
+  created $dff cell `$procdff$234' with positive edge clock.
+Creating register for signal `\free_list.$past$free_list.v:100$3$0' using process `\free_list.$proc$free_list.v:94$44'.
+  created $dff cell `$procdff$235' with positive edge clock.
+Creating register for signal `\free_list.$past$free_list.v:101$4$0' using process `\free_list.$proc$free_list.v:94$44'.
+  created $dff cell `$procdff$236' with positive edge clock.
+Creating register for signal `\free_list.$past$free_list.v:101$5$0' using process `\free_list.$proc$free_list.v:94$44'.
+  created $dff cell `$procdff$237' with positive edge clock.
+Creating register for signal `\free_list.$past$free_list.v:102$6$0' using process `\free_list.$proc$free_list.v:94$44'.
+  created $dff cell `$procdff$238' with positive edge clock.
+Creating register for signal `\free_list.\f_past_valid' using process `\free_list.$proc$free_list.v:84$35'.
+  created $dff cell `$procdff$239' with positive edge clock.
+Creating register for signal `\free_list.\o_req0' using process `\free_list.$proc$free_list.v:49$31'.
+  created $adff cell `$procdff$240' with positive edge clock and negative level reset.
+Creating register for signal `\free_list.\o_req1' using process `\free_list.$proc$free_list.v:49$31'.
+  created $adff cell `$procdff$241' with positive edge clock and negative level reset.
+Creating register for signal `\free_list.\o_req2' using process `\free_list.$proc$free_list.v:49$31'.
+  created $adff cell `$procdff$242' with positive edge clock and negative level reset.
+Creating register for signal `\free_list.\o_req3' using process `\free_list.$proc$free_list.v:49$31'.
+  created $adff cell `$procdff$243' with positive edge clock and negative level reset.
+Creating register for signal `\free_list.\o_req_count' using process `\free_list.$proc$free_list.v:49$31'.
+  created $adff cell `$procdff$244' with positive edge clock and negative level reset.
+Creating register for signal `\free_list.\o_avail_count' using process `\free_list.$proc$free_list.v:49$31'.
+  created $adff cell `$procdff$245' with positive edge clock and negative level reset.
+Creating register for signal `\free_list.\free' using process `\free_list.$proc$free_list.v:49$31'.
+  created $adff cell `$procdff$246' with positive edge clock and negative level reset.
+
+2.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\encoder_6bit.$proc$free_list.v:114$77'.
+Removing empty process `encoder_6bit.$proc$free_list.v:114$77'.
+Removing empty process `free_list.$proc$free_list.v:0$76'.
+Removing empty process `free_list.$proc$free_list.v:0$73'.
+Removing empty process `free_list.$proc$free_list.v:0$70'.
+Found and cleaned up 3 empty switches in `\free_list.$proc$free_list.v:94$44'.
+Removing empty process `free_list.$proc$free_list.v:94$44'.
+Removing empty process `free_list.$proc$free_list.v:86$36'.
+Removing empty process `free_list.$proc$free_list.v:84$35'.
+Found and cleaned up 1 empty switch in `\free_list.$proc$free_list.v:49$31'.
+Removing empty process `free_list.$proc$free_list.v:49$31'.
+Cleaned up 5 empty switches.
+
+2.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module encoder_6bit.
+<suppressed ~64 debug messages>
+Optimizing module free_list.
+<suppressed ~5 debug messages>
+
+2.4. Executing FUTURE pass.
+
+2.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module encoder_6bit.
+Optimizing module free_list.
+
+2.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \encoder_6bit..
+Finding unused cells or wires in module \free_list..
+Removed 1 unused cells and 119 unused wires.
+<suppressed ~4 debug messages>
+
+2.7. Executing CHECK pass (checking for obvious problems).
+Checking module encoder_6bit...
+Checking module free_list...
+Found and reported 0 problems.
+
+2.8. Executing OPT pass (performing simple optimizations).
+
+2.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module encoder_6bit.
+Optimizing module free_list.
+
+2.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\encoder_6bit'.
+Finding identical cells in module `\free_list'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+2.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \encoder_6bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \free_list..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+2.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \encoder_6bit.
+  Optimizing cells in module \free_list.
+Performed a total of 0 changes.
+
+2.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\encoder_6bit'.
+Finding identical cells in module `\free_list'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+2.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \encoder_6bit..
+Finding unused cells or wires in module \free_list..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+2.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module encoder_6bit.
+Optimizing module free_list.
+
+2.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \encoder_6bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \free_list..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+2.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \encoder_6bit.
+  Optimizing cells in module \free_list.
+Performed a total of 0 changes.
+
+2.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\encoder_6bit'.
+Finding identical cells in module `\free_list'.
+Removed a total of 0 cells.
+
+2.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \encoder_6bit..
+Finding unused cells or wires in module \free_list..
+
+2.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module encoder_6bit.
+Optimizing module free_list.
+
+2.8.14. Finished OPT passes. (There is nothing left to do.)
+
+2.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 30 bits (of 32) from port B of cell free_list.$gt$free_list.v:26$8 ($gt).
+Removed top 31 bits (of 32) from port B of cell free_list.$gt$free_list.v:26$9 ($gt).
+Removed top 31 bits (of 32) from port B of cell free_list.$sub$free_list.v:33$19 ($sub).
+Removed top 31 bits (of 32) from port B of cell free_list.$sub$free_list.v:34$21 ($sub).
+Removed top 31 bits (of 32) from port B of cell free_list.$sub$free_list.v:35$23 ($sub).
+Removed top 31 bits (of 32) from port B of cell free_list.$sub$free_list.v:36$25 ($sub).
+Removed top 26 bits (of 32) from port A of cell free_list.$auto$genrtlil.cc:1633:genRTLIL$62 ($sub).
+Removed top 25 bits (of 32) from port Y of cell free_list.$auto$genrtlil.cc:1633:genRTLIL$62 ($sub).
+Removed top 25 bits (of 32) from port B of cell free_list.$shiftx$free_list.v:0$64 ($shiftx).
+Removed top 2 bits (of 3) from port B of cell free_list.$gt$free_list.v:100$66 ($gt).
+Removed top 26 bits (of 32) from port A of cell free_list.$auto$genrtlil.cc:1633:genRTLIL$67 ($sub).
+Removed top 25 bits (of 32) from port Y of cell free_list.$auto$genrtlil.cc:1633:genRTLIL$67 ($sub).
+Removed top 25 bits (of 32) from port B of cell free_list.$shiftx$free_list.v:0$69 ($shiftx).
+Removed top 1 bits (of 3) from port B of cell free_list.$procmux$229_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell free_list.$procmux$230_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell free_list.$procmux$231_CMP0 ($eq).
+
+2.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \encoder_6bit..
+Finding unused cells or wires in module \free_list..
+
+2.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.12. Executing OPT pass (performing simple optimizations).
+
+2.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module encoder_6bit.
+Optimizing module free_list.
+
+2.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\encoder_6bit'.
+Finding identical cells in module `\free_list'.
+Removed a total of 0 cells.
+
+2.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \encoder_6bit..
+Finding unused cells or wires in module \free_list..
+
+2.12.4. Finished fast OPT passes.
+
+2.13. Printing statistics.
+
+=== encoder_6bit ===
+
+   Number of wires:                 65
+   Number of wire bits:            448
+   Number of public wires:           2
+   Number of public wire bits:      70
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 64
+     $mux                           64
+
+=== free_list ===
+
+   Number of wires:                 75
+   Number of wire bits:           1267
+   Number of public wires:          34
+   Number of public wire bits:     766
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 80
+     $add                            1
+     $adff                           7
+     $and                            4
+     $check                         10
+     $dff                            7
+     $eq                             6
+     $gt                             3
+     $le                             3
+     $logic_and                      1
+     $logic_not                      6
+     $logic_or                       1
+     $mux                            4
+     $or                             4
+     $pmux                           1
+     $reduce_bool                    1
+     $shiftx                         2
+     $shl                            4
+     $sub                            7
+     $xor                            4
+     encoder_6bit                    4
+
+=== design hierarchy ===
+
+   free_list                         1
+     encoder_6bit                    4
+
+   Number of wires:                335
+   Number of wire bits:           3059
+   Number of public wires:          42
+   Number of public wire bits:    1046
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                332
+     $add                            1
+     $adff                           7
+     $and                            4
+     $check                         10
+     $dff                            7
+     $eq                             6
+     $gt                             3
+     $le                             3
+     $logic_and                      1
+     $logic_not                      6
+     $logic_or                       1
+     $mux                          260
+     $or                             4
+     $pmux                           1
+     $reduce_bool                    1
+     $shiftx                         2
+     $shl                            4
+     $sub                            7
+     $xor                            4
+
+2.14. Executing CHECK pass (checking for obvious problems).
+Checking module encoder_6bit...
+Checking module free_list...
+Found and reported 0 problems.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \free_list
+Used module:     \encoder_6bit
+
+3.2. Analyzing design hierarchy..
+Top module:  \free_list
+Used module:     \encoder_6bit
+Removed 0 unused modules.
+Module free_list directly or indirectly contains formal properties -> setting "keep" attribute.
+
+4. Executing jny backend.
+
+5. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+Warnings: 5 unique messages, 10 total
+End of script. Logfile hash: 641f69d66f, CPU: user 0.27s system 0.01s, MEM: 24.75 MB peak
+Yosys 0.39 (git sha1 00338082b, g++ 13.2.1 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -ffile-prefix-map=/build/yosys/src=/usr/src/debug/yosys -fPIC -Os)
+Time spent: 24% 5x opt_clean (0 sec), 21% 6x opt_expr (0 sec), ...

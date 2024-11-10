@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2024-05-31T11:06:40" hostname="thinker" package="free_list" id="0" name="cover" tests="4" errors="0" failures="0" time="1" skipped="4">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="PASS"/>
+</properties>
+<testcase classname="cover" name="build execution" time="0">
+</testcase>
+<testcase classname="cover" name="Property ASSERT in free_list at free_list.v:101.21-101.55" time="0" type="ASSERT" location="free_list.v:101.21-101.55" id="_witness_.check_assert_free_list_v_101_60">
+<skipped />
+</testcase>
+<testcase classname="cover" name="Property ASSERT in free_list at free_list.v:102.21-102.49" time="0" type="ASSERT" location="free_list.v:102.21-102.49" id="_witness_.check_assert_free_list_v_102_61">
+<skipped />
+</testcase>
+<testcase classname="cover" name="Property ASSERT in free_list at free_list.v:96.13-96.40" time="0" type="ASSERT" location="free_list.v:96.13-96.40" id="_witness_.check_assert_free_list_v_96_54">
+<skipped />
+</testcase>
+<testcase classname="cover" name="Property ASSERT in free_list at free_list.v:97.13-97.40" time="0" type="ASSERT" location="free_list.v:97.13-97.40" id="_witness_.check_assert_free_list_v_97_56">
+<skipped />
+</testcase>
+<system-out>SBY 11:06:39 [free_list_prove] Removing directory '/home/kalyan/Documents/risc/formal/free_list_prove'.
+SBY 11:06:39 [free_list_cover] Removing directory '/home/kalyan/Documents/risc/formal/free_list_cover'.
+SBY 11:06:39 [free_list_cover] Copy '/home/kalyan/Documents/risc/rtl/free_list.v' to '/home/kalyan/Documents/risc/formal/free_list_cover/src/free_list.v'.
+SBY 11:06:39 [free_list_cover] engine_0: smtbmc yices
+SBY 11:06:39 [free_list_cover] base: starting process &quot;cd free_list_cover/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 11:06:39 [free_list_cover] base: free_list.v:79: Warning: SystemVerilog does not allow &quot;restrict&quot; without &quot;property&quot;.
+SBY 11:06:39 [free_list_cover] base: Warning: Resizing cell port free_list.enc3.i_vec from 48 bits to 64 bits.
+SBY 11:06:39 [free_list_cover] base: Warning: Resizing cell port free_list.enc2.i_vec from 48 bits to 64 bits.
+SBY 11:06:39 [free_list_cover] base: Warning: Resizing cell port free_list.enc1.i_vec from 48 bits to 64 bits.
+SBY 11:06:39 [free_list_cover] base: Warning: Resizing cell port free_list.enc0.i_vec from 48 bits to 64 bits.
+SBY 11:06:39 [free_list_cover] base: finished (returncode=0)
+SBY 11:06:39 [free_list_cover] prep: starting process &quot;cd free_list_cover/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 11:06:40 [free_list_cover] prep: finished (returncode=0)
+SBY 11:06:40 [free_list_cover] smt2: starting process &quot;cd free_list_cover/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 11:06:40 [free_list_cover] smt2: finished (returncode=0)
+SBY 11:06:40 [free_list_cover] engine_0: starting process &quot;cd free_list_cover; yosys-smtbmc -s yices --presat --unroll -c --noprogress -t 32  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2&quot;
+SBY 11:06:40 [free_list_cover] engine_0: ##   0:00:00  Solver: yices
+SBY 11:06:40 [free_list_cover] engine_0: ##   0:00:00  Status: passed
+SBY 11:06:40 [free_list_cover] engine_0: finished (returncode=0)
+SBY 11:06:40 [free_list_cover] engine_0: Status returned by engine: pass
+SBY 11:06:40 [free_list_cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 11:06:40 [free_list_cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 11:06:40 [free_list_cover] summary: engine_0 (smtbmc yices) returned pass
+SBY 11:06:40 [free_list_cover] summary: engine_0 did not produce any traces
+SBY 11:06:40 [free_list_cover] DONE (PASS, rc=0)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

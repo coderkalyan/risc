@@ -1,0 +1,19 @@
+[tasks]
+prove
+cover
+
+[options]
+prove: mode prove
+cover: mode cover
+depth 32
+multiclock on
+
+[engines]
+smtbmc yices
+
+[script]
+read -formal free_list.v
+prep -top free_list
+
+[files]
+../rtl/free_list.v

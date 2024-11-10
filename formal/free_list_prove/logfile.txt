@@ -1,0 +1,48 @@
+SBY 11:06:39 [free_list_prove] Removing directory '/home/kalyan/Documents/risc/formal/free_list_prove'.
+SBY 11:06:39 [free_list_prove] Copy '/home/kalyan/Documents/risc/rtl/free_list.v' to '/home/kalyan/Documents/risc/formal/free_list_prove/src/free_list.v'.
+SBY 11:06:39 [free_list_prove] engine_0: smtbmc yices
+SBY 11:06:39 [free_list_prove] base: starting process "cd free_list_prove/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 11:06:39 [free_list_prove] base: free_list.v:79: Warning: SystemVerilog does not allow "restrict" without "property".
+SBY 11:06:39 [free_list_prove] base: Warning: Resizing cell port free_list.enc3.i_vec from 48 bits to 64 bits.
+SBY 11:06:39 [free_list_prove] base: Warning: Resizing cell port free_list.enc2.i_vec from 48 bits to 64 bits.
+SBY 11:06:39 [free_list_prove] base: Warning: Resizing cell port free_list.enc1.i_vec from 48 bits to 64 bits.
+SBY 11:06:39 [free_list_prove] base: Warning: Resizing cell port free_list.enc0.i_vec from 48 bits to 64 bits.
+SBY 11:06:39 [free_list_prove] base: finished (returncode=0)
+SBY 11:06:39 [free_list_prove] prep: starting process "cd free_list_prove/model; yosys -ql design_prep.log design_prep.ys"
+SBY 11:06:40 [free_list_prove] prep: finished (returncode=0)
+SBY 11:06:40 [free_list_prove] smt2: starting process "cd free_list_prove/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 11:06:40 [free_list_prove] smt2: finished (returncode=0)
+SBY 11:06:40 [free_list_prove] engine_0.basecase: starting process "cd free_list_prove; yosys-smtbmc -s yices --presat --unroll --noprogress -t 32  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 11:06:40 [free_list_prove] engine_0.induction: starting process "cd free_list_prove; yosys-smtbmc -s yices --presat --unroll -i --noprogress -t 32  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY 11:06:40 [free_list_prove] engine_0.induction: ##   0:00:00  Solver: yices
+SBY 11:06:40 [free_list_prove] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY 11:06:40 [free_list_prove] engine_0.induction: ##   0:00:00  Trying induction in step 32..
+SBY 11:06:40 [free_list_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 11:06:40 [free_list_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 11:06:40 [free_list_prove] engine_0.induction: ##   0:00:00  Trying induction in step 31..
+SBY 11:06:40 [free_list_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 11:06:40 [free_list_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 11:06:40 [free_list_prove] engine_0.induction: ##   0:00:00  Trying induction in step 30..
+SBY 11:06:40 [free_list_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 11:06:40 [free_list_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 11:06:40 [free_list_prove] engine_0.induction: ##   0:00:00  Trying induction in step 29..
+SBY 11:06:40 [free_list_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 11:06:40 [free_list_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 11:06:40 [free_list_prove] engine_0.basecase: ##   0:00:00  BMC failed!
+SBY 11:06:40 [free_list_prove] engine_0.basecase: ##   0:00:00  Assert failed in free_list: free_list.v:101.21-101.55 (_witness_.check_assert_free_list_v_101_60)
+SBY 11:06:40 [free_list_prove] engine_0.basecase: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 11:06:40 [free_list_prove] engine_0.induction: ##   0:00:00  Trying induction in step 28..
+SBY 11:06:40 [free_list_prove] engine_0.basecase: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 11:06:40 [free_list_prove] engine_0.basecase: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 11:06:40 [free_list_prove] engine_0.basecase: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 11:06:40 [free_list_prove] engine_0.basecase: ##   0:00:00  Status: failed
+SBY 11:06:40 [free_list_prove] engine_0.induction: ##   0:00:00  Trying induction in step 27..
+SBY 11:06:40 [free_list_prove] engine_0.basecase: finished (returncode=1)
+SBY 11:06:40 [free_list_prove] engine_0.basecase: Status returned by engine for basecase: FAIL
+SBY 11:06:40 [free_list_prove] engine_0.induction: terminating process
+SBY 11:06:40 [free_list_prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 11:06:40 [free_list_prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:02 (2)
+SBY 11:06:40 [free_list_prove] summary: engine_0 (smtbmc yices) returned FAIL for basecase
+SBY 11:06:40 [free_list_prove] summary: counterexample trace [basecase]: free_list_prove/engine_0/trace.vcd
+SBY 11:06:40 [free_list_prove] summary:   failed assertion free_list._witness_.check_assert_free_list_v_101_60 at free_list.v:101.21-101.55 in step 3
+SBY 11:06:40 [free_list_prove] DONE (FAIL, rc=2)

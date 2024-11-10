@@ -1,0 +1,14 @@
+[options]
+mode bmc
+#mode cover
+depth 1
+
+[engines]
+smtbmc
+
+[script]
+read -formal decoder.v
+prep -top decoder
+
+[files]
+../rtl/decoder.v

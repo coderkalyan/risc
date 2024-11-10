@@ -1,0 +1,14 @@
+[options]
+mode bmc
+#mode cover
+depth 32
+
+[engines]
+smtbmc
+
+[script]
+read -formal free_list.v
+prep -top free_list
+
+[files]
+../rtl/free_list.v

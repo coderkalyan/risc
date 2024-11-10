@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2024-05-29T20:29:00" hostname="thinker" package="rob" id="0" name="default" tests="19" errors="0" failures="0" time="3" skipped="12">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="PASS"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+</testcase>
+<testcase classname="default" name="Property ASSERT in rob at rob.v:154.9-154.36" time="0" type="ASSERT" location="rob.v:154.9-154.36" id="_witness_.check_assert_rob_v_154_209">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in rob at rob.v:155.9-155.33" time="0" type="ASSERT" location="rob.v:155.9-155.33" id="_witness_.check_assert_rob_v_155_211">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in rob at rob.v:156.9-156.46" time="0" type="ASSERT" location="rob.v:156.9-156.46" id="_witness_.check_assert_rob_v_156_213">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in rob at rob.v:158.27-158.47" time="0" type="ASSERT" location="rob.v:158.27-158.47" id="_witness_.check_assert_rob_v_158_217">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in rob at rob.v:159.27-159.47" time="0" type="ASSERT" location="rob.v:159.27-159.47" id="_witness_.check_assert_rob_v_159_220">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in rob at rob.v:160.27-160.47" time="0" type="ASSERT" location="rob.v:160.27-160.47" id="_witness_.check_assert_rob_v_160_223">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in rob at rob.v:162.9-162.36" time="0" type="ASSERT" location="rob.v:162.9-162.36" id="_witness_.check_assert_rob_v_162_225">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in rob at rob.v:163.29-163.51" time="0" type="ASSERT" location="rob.v:163.29-163.51" id="_witness_.check_assert_rob_v_163_228">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in rob at rob.v:164.29-164.51" time="0" type="ASSERT" location="rob.v:164.29-164.51" id="_witness_.check_assert_rob_v_164_231">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in rob at rob.v:165.29-165.51" time="0" type="ASSERT" location="rob.v:165.29-165.51" id="_witness_.check_assert_rob_v_165_234">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in rob at rob.v:171.17-171.44" time="0" type="ASSERT" location="rob.v:171.17-171.44" id="_witness_.check_assert_rob_v_171_240">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in rob at rob.v:173.17-173.67" time="0" type="ASSERT" location="rob.v:173.17-173.67" id="_witness_.check_assert_rob_v_173_242">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in rob at rob.v:178.13-178.36" time="0" type="COVER" location="rob.v:178.13-178.36" id="_witness_.check_cover_rob_v_178_245" tracefile="engine_0/trace0.vcd">
+</testcase>
+<testcase classname="default" name="Property COVER in rob at rob.v:179.13-179.36" time="0" type="COVER" location="rob.v:179.13-179.36" id="_witness_.check_cover_rob_v_179_247" tracefile="engine_0/trace1.vcd">
+</testcase>
+<testcase classname="default" name="Property COVER in rob at rob.v:180.13-180.36" time="0" type="COVER" location="rob.v:180.13-180.36" id="_witness_.check_cover_rob_v_180_249" tracefile="engine_0/trace3.vcd">
+</testcase>
+<testcase classname="default" name="Property COVER in rob at rob.v:181.13-181.36" time="0" type="COVER" location="rob.v:181.13-181.36" id="_witness_.check_cover_rob_v_181_251" tracefile="engine_0/trace2.vcd">
+</testcase>
+<testcase classname="default" name="Property COVER in rob at rob.v:182.13-182.36" time="0" type="COVER" location="rob.v:182.13-182.36" id="_witness_.check_cover_rob_v_182_253" tracefile="engine_0/trace4.vcd">
+</testcase>
+<testcase classname="default" name="Property COVER in rob at rob.v:184.13-184.39" time="0" type="COVER" location="rob.v:184.13-184.39" id="_witness_.check_cover_rob_v_184_255" tracefile="engine_0/trace0.vcd">
+</testcase>
+<testcase classname="default" name="Property COVER in rob at rob.v:185.13-185.31" time="0" type="COVER" location="rob.v:185.13-185.31" id="_witness_.check_cover_rob_v_185_257" tracefile="engine_0/trace5.vcd">
+</testcase>
+<system-out>SBY 20:28:57 [rob] Removing directory '/home/kalyan/Documents/risc/formal/rob'.
+SBY 20:28:57 [rob] Copy '/home/kalyan/Documents/risc/rtl/rob.v' to '/home/kalyan/Documents/risc/formal/rob/src/rob.v'.
+SBY 20:28:57 [rob] engine_0: smtbmc
+SBY 20:28:57 [rob] base: starting process &quot;cd rob/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 20:28:57 [rob] base: rob.v:116: Warning: SystemVerilog does not allow &quot;restrict&quot; without &quot;property&quot;.
+SBY 20:28:57 [rob] base: Warning: Replacing memory \old with list of registers. See rob.v:68
+SBY 20:28:57 [rob] base: Warning: Replacing memory \rdy with list of registers. See rob.v:67
+SBY 20:28:57 [rob] base: Warning: Replacing memory \buffer with list of registers. See rob.v:66
+SBY 20:28:58 [rob] base: finished (returncode=0)
+SBY 20:28:58 [rob] prep: starting process &quot;cd rob/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 20:28:58 [rob] prep: finished (returncode=0)
+SBY 20:28:58 [rob] smt2: starting process &quot;cd rob/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 20:28:58 [rob] smt2: finished (returncode=0)
+SBY 20:28:58 [rob] engine_0: starting process &quot;cd rob; yosys-smtbmc --presat --unroll -c --noprogress -t 32  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2&quot;
+SBY 20:28:58 [rob] engine_0: ##   0:00:00  Solver: yices
+SBY 20:28:58 [rob] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Reached cover statement at rob.v:184.13-184.39 (_witness_.check_cover_rob_v_184_255) in step 2.
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Reached cover statement at rob.v:178.13-178.36 (_witness_.check_cover_rob_v_178_245) in step 2.
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Reached cover statement at rob.v:179.13-179.36 (_witness_.check_cover_rob_v_179_247) in step 4.
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace1.vcd
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace1.smtc
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Reached cover statement at rob.v:181.13-181.36 (_witness_.check_cover_rob_v_181_251) in step 4.
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace2.vcd
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace2_tb.v
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace2.smtc
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace2.yw
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Reached cover statement at rob.v:180.13-180.36 (_witness_.check_cover_rob_v_180_249) in step 4.
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace3.vcd
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace3_tb.v
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace3.smtc
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace3.yw
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Reached cover statement at rob.v:182.13-182.36 (_witness_.check_cover_rob_v_182_253) in step 4.
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace4.vcd
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace4_tb.v
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace4.smtc
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace4.yw
+SBY 20:28:59 [rob] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY 20:28:59 [rob] engine_0: ##   0:00:01  Checking cover reachability in step 5..
+SBY 20:29:00 [rob] engine_0: ##   0:00:01  Checking cover reachability in step 6..
+SBY 20:29:00 [rob] engine_0: ##   0:00:01  Reached cover statement at rob.v:185.13-185.31 (_witness_.check_cover_rob_v_185_257) in step 6.
+SBY 20:29:00 [rob] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace5.vcd
+SBY 20:29:00 [rob] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace5_tb.v
+SBY 20:29:00 [rob] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace5.smtc
+SBY 20:29:00 [rob] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace5.yw
+SBY 20:29:00 [rob] engine_0: ##   0:00:01  Status: passed
+SBY 20:29:00 [rob] engine_0: finished (returncode=0)
+SBY 20:29:00 [rob] engine_0: Status returned by engine: pass
+SBY 20:29:00 [rob] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:03 (3)
+SBY 20:29:00 [rob] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:03 (3)
+SBY 20:29:00 [rob] summary: engine_0 (smtbmc) returned pass
+SBY 20:29:00 [rob] summary: cover trace: rob/engine_0/trace0.vcd
+SBY 20:29:00 [rob] summary:   reached cover statement rob._witness_.check_cover_rob_v_178_245 at rob.v:178.13-178.36 in step 2
+SBY 20:29:00 [rob] summary:   reached cover statement rob._witness_.check_cover_rob_v_184_255 at rob.v:184.13-184.39 in step 2
+SBY 20:29:00 [rob] summary: cover trace: rob/engine_0/trace1.vcd
+SBY 20:29:00 [rob] summary:   reached cover statement rob._witness_.check_cover_rob_v_179_247 at rob.v:179.13-179.36 in step 4
+SBY 20:29:00 [rob] summary: cover trace: rob/engine_0/trace2.vcd
+SBY 20:29:00 [rob] summary:   reached cover statement rob._witness_.check_cover_rob_v_181_251 at rob.v:181.13-181.36 in step 4
+SBY 20:29:00 [rob] summary: cover trace: rob/engine_0/trace3.vcd
+SBY 20:29:00 [rob] summary:   reached cover statement rob._witness_.check_cover_rob_v_180_249 at rob.v:180.13-180.36 in step 4
+SBY 20:29:00 [rob] summary: cover trace: rob/engine_0/trace4.vcd
+SBY 20:29:00 [rob] summary:   reached cover statement rob._witness_.check_cover_rob_v_182_253 at rob.v:182.13-182.36 in step 4
+SBY 20:29:00 [rob] summary: and 1 further trace
+SBY 20:29:00 [rob] summary: see rob/PASS for a complete summary
+SBY 20:29:00 [rob] DONE (PASS, rc=0)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

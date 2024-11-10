@@ -1,0 +1,5 @@
+Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+Elapsed process time [H:MM:SS (secs)]: 0:00:02 (2)
+engine_0 (smtbmc yices) returned FAIL for basecase
+counterexample trace [basecase]: engine_0/trace.vcd
+  failed assertion free_list._witness_.check_assert_free_list_v_101_60 at free_list.v:101.21-101.55 in step 3

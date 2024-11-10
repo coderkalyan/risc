@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2024-05-27T14:54:54" hostname="thinker" package="decoder" id="0" name="bmc" tests="19" errors="0" failures="0" time="0" skipped="17">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="PASS"/>
+</properties>
+<testcase classname="bmc" name="build execution" time="0">
+</testcase>
+<testcase classname="bmc" name="Property ASSERT in decoder at decoder.v:327.9-327.40" time="0" type="ASSERT" location="decoder.v:327.9-327.40" id="_witness_.check_assert_decoder_v_327_229">
+</testcase>
+<testcase classname="bmc" name="Property ASSERT in decoder at decoder.v:329.13-329.91" time="0" type="ASSERT" location="decoder.v:329.13-329.91" id="_witness_.check_assert_decoder_v_329_231">
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:332.9-332.24" time="0" type="COVER" location="decoder.v:332.9-332.24" id="_witness_.check_cover_decoder_v_332_238">
+<skipped />
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:333.9-333.24" time="0" type="COVER" location="decoder.v:333.9-333.24" id="_witness_.check_cover_decoder_v_333_239">
+<skipped />
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:334.9-334.24" time="0" type="COVER" location="decoder.v:334.9-334.24" id="_witness_.check_cover_decoder_v_334_240">
+<skipped />
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:335.9-335.24" time="0" type="COVER" location="decoder.v:335.9-335.24" id="_witness_.check_cover_decoder_v_335_241">
+<skipped />
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:336.9-336.24" time="0" type="COVER" location="decoder.v:336.9-336.24" id="_witness_.check_cover_decoder_v_336_242">
+<skipped />
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:337.9-337.24" time="0" type="COVER" location="decoder.v:337.9-337.24" id="_witness_.check_cover_decoder_v_337_243">
+<skipped />
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:339.9-339.24" time="0" type="COVER" location="decoder.v:339.9-339.24" id="_witness_.check_cover_decoder_v_339_244">
+<skipped />
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:340.9-340.22" time="0" type="COVER" location="decoder.v:340.9-340.22" id="_witness_.check_cover_decoder_v_340_245">
+<skipped />
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:341.9-341.23" time="0" type="COVER" location="decoder.v:341.9-341.23" id="_witness_.check_cover_decoder_v_341_246">
+<skipped />
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:342.9-342.23" time="0" type="COVER" location="decoder.v:342.9-342.23" id="_witness_.check_cover_decoder_v_342_247">
+<skipped />
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:343.9-343.23" time="0" type="COVER" location="decoder.v:343.9-343.23" id="_witness_.check_cover_decoder_v_343_248">
+<skipped />
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:344.9-344.21" time="0" type="COVER" location="decoder.v:344.9-344.21" id="_witness_.check_cover_decoder_v_344_249">
+<skipped />
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:345.9-345.22" time="0" type="COVER" location="decoder.v:345.9-345.22" id="_witness_.check_cover_decoder_v_345_250">
+<skipped />
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:346.9-346.23" time="0" type="COVER" location="decoder.v:346.9-346.23" id="_witness_.check_cover_decoder_v_346_251">
+<skipped />
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:347.9-347.21" time="0" type="COVER" location="decoder.v:347.9-347.21" id="_witness_.check_cover_decoder_v_347_252">
+<skipped />
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:348.9-348.23" time="0" type="COVER" location="decoder.v:348.9-348.23" id="_witness_.check_cover_decoder_v_348_253">
+<skipped />
+</testcase>
+<testcase classname="bmc" name="Property COVER in decoder at decoder.v:349.9-349.24" time="0" type="COVER" location="decoder.v:349.9-349.24" id="_witness_.check_cover_decoder_v_349_254">
+<skipped />
+</testcase>
+<system-out>SBY 14:54:54 [decoder_bmc] Removing directory '/home/kalyan/Documents/risc/formal/decoder_bmc'.
+SBY 14:54:54 [decoder_bmc] Copy '/home/kalyan/Documents/risc/rtl/decoder.v' to '/home/kalyan/Documents/risc/formal/decoder_bmc/src/decoder.v'.
+SBY 14:54:54 [decoder_bmc] engine_0: smtbmc
+SBY 14:54:54 [decoder_bmc] base: starting process &quot;cd decoder_bmc/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 14:54:54 [decoder_bmc] base: finished (returncode=0)
+SBY 14:54:54 [decoder_bmc] prep: starting process &quot;cd decoder_bmc/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 14:54:54 [decoder_bmc] prep: finished (returncode=0)
+SBY 14:54:54 [decoder_bmc] smt2: starting process &quot;cd decoder_bmc/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 14:54:54 [decoder_bmc] smt2: finished (returncode=0)
+SBY 14:54:54 [decoder_bmc] engine_0: starting process &quot;cd decoder_bmc; yosys-smtbmc --presat --unroll --noprogress -t 1  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 14:54:54 [decoder_bmc] engine_0: ##   0:00:00  Solver: yices
+SBY 14:54:54 [decoder_bmc] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 14:54:54 [decoder_bmc] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 14:54:54 [decoder_bmc] engine_0: ##   0:00:00  Status: passed
+SBY 14:54:54 [decoder_bmc] engine_0: finished (returncode=0)
+SBY 14:54:54 [decoder_bmc] engine_0: Status returned by engine: pass
+SBY 14:54:54 [decoder_bmc] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 14:54:54 [decoder_bmc] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 14:54:54 [decoder_bmc] summary: engine_0 (smtbmc) returned pass
+SBY 14:54:54 [decoder_bmc] summary: engine_0 did not produce any traces
+SBY 14:54:54 [decoder_bmc] DONE (PASS, rc=0)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

@@ -1,0 +1,90 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.39 (git sha1 00338082b, g++ 13.2.1 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -ffile-prefix-map=/build/yosys/src=/usr/src/debug/yosys -fPIC -Os)
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module free_list.
+Found 0 SCCs in module encoder_6bit.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing CLK2FFLOGIC pass (convert clocked FFs to generic $ff cells).
+Replacing free_list.$procdff$246 ($adff): CLK=\i_clk, D=$0\free[47:0], Q=\free
+Replacing free_list.$procdff$245 ($adff): CLK=\i_clk, D=$0\o_avail_count[5:0], Q=\o_avail_count
+Replacing free_list.$procdff$244 ($adff): CLK=\i_clk, D=\i_req_count, Q=\o_req_count
+Replacing free_list.$procdff$243 ($adff): CLK=\i_clk, D=\req3, Q=\o_req3
+Replacing free_list.$procdff$242 ($adff): CLK=\i_clk, D=\req2, Q=\o_req2
+Replacing free_list.$procdff$241 ($adff): CLK=\i_clk, D=\req1, Q=\o_req1
+Replacing free_list.$procdff$240 ($adff): CLK=\i_clk, D=\req0, Q=\o_req0
+Replacing free_list.$procdff$239 ($dff): CLK=\i_clk, D=1'1, Q=\f_past_valid
+Replacing free_list.$procdff$238 ($dff): CLK=\i_clk, D=\o_req0, Q=$past$free_list.v:102$6$0
+Replacing free_list.$procdff$237 ($dff): CLK=\i_clk, D=$0$past$free_list.v:101$5$0[0:0]$49, Q=$past$free_list.v:101$5$0
+Replacing free_list.$procdff$236 ($dff): CLK=\i_clk, D=\o_req0, Q=$past$free_list.v:101$4$0
+Replacing free_list.$procdff$235 ($dff): CLK=\i_clk, D=$0$past$free_list.v:100$3$0[0:0]$47, Q=$past$free_list.v:100$3$0
+Replacing free_list.$procdff$234 ($dff): CLK=\i_clk, D=\i_ret_count, Q=$past$free_list.v:99$2$0
+Replacing free_list.$procdff$233 ($dff): CLK=\i_clk, D=\i_rst_n, Q=$past$free_list.v:95$1$0
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \free_list..
+Finding unused cells or wires in module \encoder_6bit..
+Removed 24 unused cells and 38 unused wires.
+<suppressed ~25 debug messages>
+
+7. Executing FORMALFF pass.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \encoder_6bit..
+Finding unused cells or wires in module \free_list..
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module encoder_6bit...
+Checking module free_list...
+Found and reported 0 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module encoder_6bit.
+Optimizing module free_list.
+<suppressed ~13 debug messages>
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\encoder_6bit'.
+Finding identical cells in module `\free_list'.
+<suppressed ~153 debug messages>
+Removed a total of 51 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \encoder_6bit..
+Finding unused cells or wires in module \free_list..
+Removed 0 unused cells and 57 unused wires.
+<suppressed ~1 debug messages>
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \encoder_6bit..
+Finding unused cells or wires in module \free_list..
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+End of script. Logfile hash: f8ac11fbe1, CPU: user 0.19s system 0.02s, MEM: 24.73 MB peak
+Yosys 0.39 (git sha1 00338082b, g++ 13.2.1 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -ffile-prefix-map=/build/yosys/src=/usr/src/debug/yosys -fPIC -Os)
+Time spent: 41% 4x opt_clean (0 sec), 12% 1x check (0 sec), ...

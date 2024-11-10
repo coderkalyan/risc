@@ -1,0 +1,126 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.39 (git sha1 00338082b, g++ 13.2.1 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -ffile-prefix-map=/build/yosys/src=/usr/src/debug/yosys -fPIC -Os)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \free_list
+Used module:     \encoder_6bit
+
+2.2. Analyzing design hierarchy..
+Top module:  \free_list
+Used module:     \encoder_6bit
+Removed 0 unused modules.
+Module free_list directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== free_list ===
+
+   Number of wires:                135
+   Number of wire bits:           1654
+   Number of public wires:          40
+   Number of public wire bits:     784
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                134
+     $add                            1
+     $and                            6
+     $anyinit                       13
+     $assert                         4
+     $assume                         6
+     $eq                             6
+     $eqx                            1
+     $ff                            22
+     $gt                             3
+     $initstate                      1
+     $le                             3
+     $logic_and                      1
+     $logic_not                      6
+     $logic_or                       1
+     $mux                           32
+     $not                            1
+     $or                             4
+     $pmux                           1
+     $reduce_bool                    1
+     $shiftx                         2
+     $shl                            4
+     $sub                            7
+     $xor                            4
+     encoder_6bit                    4
+
+=== encoder_6bit ===
+
+   Number of wires:                 65
+   Number of wire bits:            448
+   Number of public wires:           2
+   Number of public wire bits:      70
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 64
+     $mux                           64
+
+=== design hierarchy ===
+
+   free_list                         1
+     encoder_6bit                    4
+
+   Number of wires:                395
+   Number of wire bits:           3446
+   Number of public wires:          48
+   Number of public wire bits:    1064
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                386
+     $add                            1
+     $and                            6
+     $anyinit                       13
+     $assert                         4
+     $assume                         6
+     $eq                             6
+     $eqx                            1
+     $ff                            22
+     $gt                             3
+     $initstate                      1
+     $le                             3
+     $logic_and                      1
+     $logic_not                      6
+     $logic_or                       1
+     $mux                          288
+     $not                            1
+     $or                             4
+     $pmux                           1
+     $reduce_bool                    1
+     $shiftx                         2
+     $shl                            4
+     $sub                            7
+     $xor                            4
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module encoder_6bit.
+Creating SMT-LIBv2 representation of module free_list.
+
+End of script. Logfile hash: b593bedc9c, CPU: user 0.07s system 0.01s, MEM: 22.44 MB peak
+Yosys 0.39 (git sha1 00338082b, g++ 13.2.1 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -ffile-prefix-map=/build/yosys/src=/usr/src/debug/yosys -fPIC -Os)
+Time spent: 62% 2x write_smt2 (0 sec), 29% 2x read_ilang (0 sec), ...

@@ -1,0 +1,8 @@
+# running in free_list_prove/src/
+read -formal free_list.v
+prep -top free_list
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

@@ -1,0 +1,113 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.39 (git sha1 00338082b, g++ 13.2.1 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -ffile-prefix-map=/build/yosys/src=/usr/src/debug/yosys -fPIC -Os)
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module rob.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing ASYNC2SYNC pass.
+Replacing rob.$procdff$4223 ($adff): ARST=\i_rst_n, D=$0\old[15][5:0], Q=\old[15]
+Replacing rob.$procdff$4222 ($adff): ARST=\i_rst_n, D=$0\old[14][5:0], Q=\old[14]
+Replacing rob.$procdff$4221 ($adff): ARST=\i_rst_n, D=$0\old[13][5:0], Q=\old[13]
+Replacing rob.$procdff$4220 ($adff): ARST=\i_rst_n, D=$0\old[12][5:0], Q=\old[12]
+Replacing rob.$procdff$4219 ($adff): ARST=\i_rst_n, D=$0\old[11][5:0], Q=\old[11]
+Replacing rob.$procdff$4218 ($adff): ARST=\i_rst_n, D=$0\old[10][5:0], Q=\old[10]
+Replacing rob.$procdff$4217 ($adff): ARST=\i_rst_n, D=$0\old[9][5:0], Q=\old[9]
+Replacing rob.$procdff$4216 ($adff): ARST=\i_rst_n, D=$0\old[8][5:0], Q=\old[8]
+Replacing rob.$procdff$4215 ($adff): ARST=\i_rst_n, D=$0\old[7][5:0], Q=\old[7]
+Replacing rob.$procdff$4214 ($adff): ARST=\i_rst_n, D=$0\old[6][5:0], Q=\old[6]
+Replacing rob.$procdff$4213 ($adff): ARST=\i_rst_n, D=$0\old[5][5:0], Q=\old[5]
+Replacing rob.$procdff$4212 ($adff): ARST=\i_rst_n, D=$0\old[4][5:0], Q=\old[4]
+Replacing rob.$procdff$4211 ($adff): ARST=\i_rst_n, D=$0\old[3][5:0], Q=\old[3]
+Replacing rob.$procdff$4210 ($adff): ARST=\i_rst_n, D=$0\old[2][5:0], Q=\old[2]
+Replacing rob.$procdff$4209 ($adff): ARST=\i_rst_n, D=$0\old[1][5:0], Q=\old[1]
+Replacing rob.$procdff$4208 ($adff): ARST=\i_rst_n, D=$0\old[0][5:0], Q=\old[0]
+Replacing rob.$procdff$4207 ($adff): ARST=\i_rst_n, D=$0\rdy[15][0:0], Q=\rdy[15]
+Replacing rob.$procdff$4206 ($adff): ARST=\i_rst_n, D=$0\rdy[14][0:0], Q=\rdy[14]
+Replacing rob.$procdff$4205 ($adff): ARST=\i_rst_n, D=$0\rdy[13][0:0], Q=\rdy[13]
+Replacing rob.$procdff$4204 ($adff): ARST=\i_rst_n, D=$0\rdy[12][0:0], Q=\rdy[12]
+Replacing rob.$procdff$4203 ($adff): ARST=\i_rst_n, D=$0\rdy[11][0:0], Q=\rdy[11]
+Replacing rob.$procdff$4202 ($adff): ARST=\i_rst_n, D=$0\rdy[10][0:0], Q=\rdy[10]
+Replacing rob.$procdff$4201 ($adff): ARST=\i_rst_n, D=$0\rdy[9][0:0], Q=\rdy[9]
+Replacing rob.$procdff$4200 ($adff): ARST=\i_rst_n, D=$0\rdy[8][0:0], Q=\rdy[8]
+Replacing rob.$procdff$4199 ($adff): ARST=\i_rst_n, D=$0\rdy[7][0:0], Q=\rdy[7]
+Replacing rob.$procdff$4198 ($adff): ARST=\i_rst_n, D=$0\rdy[6][0:0], Q=\rdy[6]
+Replacing rob.$procdff$4197 ($adff): ARST=\i_rst_n, D=$0\rdy[5][0:0], Q=\rdy[5]
+Replacing rob.$procdff$4196 ($adff): ARST=\i_rst_n, D=$0\rdy[4][0:0], Q=\rdy[4]
+Replacing rob.$procdff$4195 ($adff): ARST=\i_rst_n, D=$0\rdy[3][0:0], Q=\rdy[3]
+Replacing rob.$procdff$4194 ($adff): ARST=\i_rst_n, D=$0\rdy[2][0:0], Q=\rdy[2]
+Replacing rob.$procdff$4193 ($adff): ARST=\i_rst_n, D=$0\rdy[1][0:0], Q=\rdy[1]
+Replacing rob.$procdff$4192 ($adff): ARST=\i_rst_n, D=$0\rdy[0][0:0], Q=\rdy[0]
+Replacing rob.$procdff$4174 ($adff): ARST=\i_rst_n, D=$0\tail[3:0], Q=\tail
+Replacing rob.$procdff$4173 ($adff): ARST=\i_rst_n, D=$0\head[3:0], Q=\head
+Replacing rob.$procdff$4172 ($adff): ARST=\i_rst_n, D=\evict_count, Q=\o_ret_count
+Replacing rob.$procdff$4171 ($adff): ARST=\i_rst_n, D=$0$mem2reg_rd$\old$rob.v:101$24_DATA[5:0]$82, Q=\o_ret_p3
+Replacing rob.$procdff$4170 ($adff): ARST=\i_rst_n, D=$0$mem2reg_rd$\old$rob.v:100$23_DATA[5:0]$80, Q=\o_ret_p2
+Replacing rob.$procdff$4169 ($adff): ARST=\i_rst_n, D=$0$mem2reg_rd$\old$rob.v:99$22_DATA[5:0]$78, Q=\o_ret_p1
+Replacing rob.$procdff$4168 ($adff): ARST=\i_rst_n, D=$0$mem2reg_rd$\old$rob.v:98$21_DATA[5:0]$76, Q=\o_ret_p0
+Replacing rob.$procdff$4166 ($adff): ARST=\i_rst_n, D=$0\f_count[3:0], Q=\f_count
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rob..
+Removed 48 unused cells and 48 unused wires.
+<suppressed ~49 debug messages>
+
+7. Executing FORMALFF pass.
+Setting unused undefined initial value of rob.$procdff$4163 ($dff) from 1'x to 1'0
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rob..
+Removed 1 unused cells and 1 unused wires.
+<suppressed ~2 debug messages>
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module rob...
+Found and reported 0 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rob.
+<suppressed ~3 debug messages>
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rob'.
+<suppressed ~21 debug messages>
+Removed a total of 7 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rob..
+Removed 0 unused cells and 10 unused wires.
+<suppressed ~2 debug messages>
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rob..
+Removed 0 unused cells and 49 unused wires.
+<suppressed ~1 debug messages>
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+End of script. Logfile hash: e008519f52, CPU: user 0.41s system 0.03s, MEM: 26.39 MB peak
+Yosys 0.39 (git sha1 00338082b, g++ 13.2.1 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -ffile-prefix-map=/build/yosys/src=/usr/src/debug/yosys -fPIC -Os)
+Time spent: 36% 4x opt_clean (0 sec), 28% 1x opt_expr (0 sec), ...

@@ -1,0 +1,14 @@
+[options]
+#mode bmc
+mode cover
+depth 32
+
+[engines]
+smtbmc
+
+[script]
+read -formal rob.v
+prep -top rob
+
+[files]
+../rtl/rob.v

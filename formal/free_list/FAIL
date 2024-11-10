@@ -1,0 +1,5 @@
+Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+engine_0 (smtbmc) returned FAIL
+counterexample trace: engine_0/trace.vcd
+  failed assertion free_list._witness_.check_assert_free_list_v_99_58 at free_list.v:99.21-99.49 in step 3

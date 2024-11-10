@@ -1,0 +1,5 @@
+Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+engine_0 (smtbmc) returned FAIL
+counterexample trace: engine_0/trace.vcd
+  failed assertion decoder._witness_.check_assert_decoder_v_338_281 at decoder.v:338.13-338.76 in step 0

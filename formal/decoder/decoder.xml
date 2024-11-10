@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2024-05-29T20:27:35" hostname="thinker" package="decoder" id="0" name="default" tests="66" errors="0" failures="2" time="1" skipped="65">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="FAIL"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+<failure type="FAIL" message="Task returned status FAIL." />
+</testcase>
+<testcase classname="default" name="Property ASSERT in decoder at decoder.v:332.9-332.40" time="0" type="ASSERT" location="decoder.v:332.9-332.40" id="_witness_.check_assert_decoder_v_332_242">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in decoder at decoder.v:334.13-334.91" time="0" type="ASSERT" location="decoder.v:334.13-334.91" id="_witness_.check_assert_decoder_v_334_244">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in decoder at decoder.v:335.13-335.131" time="0" type="ASSERT" location="decoder.v:335.13-335.131" id="_witness_.check_assert_decoder_v_335_251">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in decoder at decoder.v:337.13-337.196" time="0" type="ASSERT" location="decoder.v:337.13-337.196" id="_witness_.check_assert_decoder_v_337_263">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in decoder at decoder.v:338.13-338.76" time="0" type="ASSERT" location="decoder.v:338.13-338.76" id="_witness_.check_assert_decoder_v_338_281" tracefile="engine_0/trace.vcd">
+<failure type="ASSERT" message="Property ASSERT in decoder at decoder.v:338.13-338.76 failed. Trace file: engine_0/trace.vcd" />
+</testcase>
+<testcase classname="default" name="Property ASSERT in decoder at decoder.v:339.13-339.59" time="0" type="ASSERT" location="decoder.v:339.13-339.59" id="_witness_.check_assert_decoder_v_339_287">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_291">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_295">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_299">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_303">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_307">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_311">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_315">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_319">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_323">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_327">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_331">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_335">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_339">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_343">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_347">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_351">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_355">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_359">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_363">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_367">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_371">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_375">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_379">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_383">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_387">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_391">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_395">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_399">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_403">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_407">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_411">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:342.44-342.72" time="0" type="COVER" location="decoder.v:342.44-342.72" id="_witness_.check_cover_decoder_v_342_415">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:345.9-345.24" time="0" type="COVER" location="decoder.v:345.9-345.24" id="_witness_.check_cover_decoder_v_345_419">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:346.9-346.24" time="0" type="COVER" location="decoder.v:346.9-346.24" id="_witness_.check_cover_decoder_v_346_420">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:347.9-347.24" time="0" type="COVER" location="decoder.v:347.9-347.24" id="_witness_.check_cover_decoder_v_347_421">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:348.9-348.24" time="0" type="COVER" location="decoder.v:348.9-348.24" id="_witness_.check_cover_decoder_v_348_422">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:349.9-349.24" time="0" type="COVER" location="decoder.v:349.9-349.24" id="_witness_.check_cover_decoder_v_349_423">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:350.9-350.24" time="0" type="COVER" location="decoder.v:350.9-350.24" id="_witness_.check_cover_decoder_v_350_424">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:352.9-352.24" time="0" type="COVER" location="decoder.v:352.9-352.24" id="_witness_.check_cover_decoder_v_352_425">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:353.9-353.22" time="0" type="COVER" location="decoder.v:353.9-353.22" id="_witness_.check_cover_decoder_v_353_426">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:354.9-354.23" time="0" type="COVER" location="decoder.v:354.9-354.23" id="_witness_.check_cover_decoder_v_354_427">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:355.9-355.23" time="0" type="COVER" location="decoder.v:355.9-355.23" id="_witness_.check_cover_decoder_v_355_428">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:356.9-356.23" time="0" type="COVER" location="decoder.v:356.9-356.23" id="_witness_.check_cover_decoder_v_356_429">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:357.9-357.21" time="0" type="COVER" location="decoder.v:357.9-357.21" id="_witness_.check_cover_decoder_v_357_430">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:358.9-358.22" time="0" type="COVER" location="decoder.v:358.9-358.22" id="_witness_.check_cover_decoder_v_358_431">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:359.9-359.23" time="0" type="COVER" location="decoder.v:359.9-359.23" id="_witness_.check_cover_decoder_v_359_432">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:360.9-360.21" time="0" type="COVER" location="decoder.v:360.9-360.21" id="_witness_.check_cover_decoder_v_360_433">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:361.9-361.23" time="0" type="COVER" location="decoder.v:361.9-361.23" id="_witness_.check_cover_decoder_v_361_434">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:362.9-362.24" time="0" type="COVER" location="decoder.v:362.9-362.24" id="_witness_.check_cover_decoder_v_362_435">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:364.9-364.23" time="0" type="COVER" location="decoder.v:364.9-364.23" id="_witness_.check_cover_decoder_v_364_436">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:365.9-365.24" time="0" type="COVER" location="decoder.v:365.9-365.24" id="_witness_.check_cover_decoder_v_365_437">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:367.9-367.41" time="0" type="COVER" location="decoder.v:367.9-367.41" id="_witness_.check_cover_decoder_v_367_439">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:368.9-368.41" time="0" type="COVER" location="decoder.v:368.9-368.41" id="_witness_.check_cover_decoder_v_368_441">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:369.9-369.38" time="0" type="COVER" location="decoder.v:369.9-369.38" id="_witness_.check_cover_decoder_v_369_443">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:370.9-370.40" time="0" type="COVER" location="decoder.v:370.9-370.40" id="_witness_.check_cover_decoder_v_370_445">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:371.9-371.39" time="0" type="COVER" location="decoder.v:371.9-371.39" id="_witness_.check_cover_decoder_v_371_447">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:372.9-372.40" time="0" type="COVER" location="decoder.v:372.9-372.40" id="_witness_.check_cover_decoder_v_372_449">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:373.9-373.42" time="0" type="COVER" location="decoder.v:373.9-373.42" id="_witness_.check_cover_decoder_v_373_451">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:374.9-374.27" time="0" type="COVER" location="decoder.v:374.9-374.27" id="_witness_.check_cover_decoder_v_374_453">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in decoder at decoder.v:375.9-375.28" time="0" type="COVER" location="decoder.v:375.9-375.28" id="_witness_.check_cover_decoder_v_375_454">
+<skipped />
+</testcase>
+<system-out>SBY 20:27:34 [decoder] Removing directory '/home/kalyan/Documents/risc/formal/decoder'.
+SBY 20:27:34 [decoder] Copy '/home/kalyan/Documents/risc/rtl/decoder.v' to '/home/kalyan/Documents/risc/formal/decoder/src/decoder.v'.
+SBY 20:27:34 [decoder] engine_0: smtbmc
+SBY 20:27:34 [decoder] base: starting process &quot;cd decoder/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 20:27:34 [decoder] base: finished (returncode=0)
+SBY 20:27:34 [decoder] prep: starting process &quot;cd decoder/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 20:27:34 [decoder] prep: finished (returncode=0)
+SBY 20:27:34 [decoder] smt2: starting process &quot;cd decoder/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 20:27:34 [decoder] smt2: finished (returncode=0)
+SBY 20:27:34 [decoder] engine_0: starting process &quot;cd decoder; yosys-smtbmc --presat --unroll --noprogress -t 1  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Solver: yices
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  BMC failed!
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Assert failed in decoder: decoder.v:338.13-338.76 (_witness_.check_assert_decoder_v_338_281)
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 20:27:35 [decoder] engine_0: ##   0:00:00  Status: failed
+SBY 20:27:35 [decoder] engine_0: finished (returncode=1)
+SBY 20:27:35 [decoder] engine_0: Status returned by engine: FAIL
+SBY 20:27:35 [decoder] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 20:27:35 [decoder] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 20:27:35 [decoder] summary: engine_0 (smtbmc) returned FAIL
+SBY 20:27:35 [decoder] summary: counterexample trace: decoder/engine_0/trace.vcd
+SBY 20:27:35 [decoder] summary:   failed assertion decoder._witness_.check_assert_decoder_v_338_281 at decoder.v:338.13-338.76 in step 0
+SBY 20:27:35 [decoder] DONE (FAIL, rc=2)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

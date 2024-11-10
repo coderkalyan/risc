@@ -1,0 +1,3 @@
+SBY 14:50:21 [decoder_bmc] Removing directory '/home/kalyan/Documents/risc/formal/decoder_bmc'.
+SBY 14:50:21 [decoder_cover] Removing directory '/home/kalyan/Documents/risc/formal/decoder_cover'.
+SBY 14:50:21 [decoder_cover] ERROR: Invalid mode: None

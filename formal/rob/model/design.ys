@@ -1,0 +1,8 @@
+# running in rob/src/
+read -formal rob.v
+prep -top rob
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

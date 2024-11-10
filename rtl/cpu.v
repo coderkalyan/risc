@@ -83,7 +83,7 @@ module cpu #(
     always @(*) begin
         di_bundles[0] = bundles[0];
         di_bundles[1] = {BWIDTH{1'bx}};
-        di_bundles[2] = 3'd0; //'{BWIDTH{1'bx}};
+        di_bundles[2] = {BWIDTH{1'bx}};
         di_bundles[3] = {BWIDTH{1'bx}};
 
         casez (decoder_valid)
@@ -109,14 +109,28 @@ module cpu #(
             8'b1010101?: di_bundles[3] = bundles[6];
         endcase
     end
-    // wire [2:0] vvec [0:3];
-    // wire [2:0] bundleindex [0:3];
-    // assign vvec[0] = decoder_valid;
-    // cloc6 cloc [0:2] (.i_vec(vvec[0:2]), .i_loc(bindex[0:2]), .o_vec(vvec[1:3]));
-    // penc6 penc6_0 [0:3] (.i_vec(vvec), .o_loc(bindex));
 
     // ----- dispatch stage -----
     integer i;
+    reg [BWIDTH - 1:0] di_di_bundles [0:3];
+    always @(posedge i_clk, negedge i_rst_n) begin
+        if (!i_rst_n) begin
+            for (i = 0; i < 4; i++)
+                di_di_bundles[i] <= {BWIDTH{1'b0}};
+        end else if (di_di_bundles[0] == {BWIDTH{1'b0}}) begin
+            for (i = 0; i < 4; i++)
+                di_di_bundles[i] <= di_bundles[i];
+        end
+    end
+
+    rs reservation_stations (
+        .i_clk(i_clk), .i_rst_n(i_rst_n),
+        .i_bundle0(di_di_bundles[0]), .i_bundle1(di_di_bundles[1]),
+        .i_bundle2(di_di_bundles[2]), .i_bundle3(di_di_bundles[3]),
+        .i_insert_count(3'd4), // TODO: fix this
+        .i_rdy_regs()
+    );
+
     initial begin
         $dumpfile("cpu.vcd");
         $dumpvars(0, cpu);

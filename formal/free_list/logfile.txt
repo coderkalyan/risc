@@ -1,0 +1,39 @@
+SBY 11:50:49 [free_list] Removing directory '/home/kalyan/Documents/risc/formal/free_list'.
+SBY 11:50:49 [free_list] Copy '/home/kalyan/Documents/risc/rtl/free_list.v' to '/home/kalyan/Documents/risc/formal/free_list/src/free_list.v'.
+SBY 11:50:49 [free_list] engine_0: smtbmc
+SBY 11:50:49 [free_list] base: starting process "cd free_list/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 11:50:49 [free_list] base: free_list.v:78: Warning: SystemVerilog does not allow "restrict" without "property".
+SBY 11:50:49 [free_list] base: Warning: Resizing cell port free_list.enc3.i_vec from 48 bits to 64 bits.
+SBY 11:50:49 [free_list] base: Warning: Resizing cell port free_list.enc2.i_vec from 48 bits to 64 bits.
+SBY 11:50:49 [free_list] base: Warning: Resizing cell port free_list.enc1.i_vec from 48 bits to 64 bits.
+SBY 11:50:49 [free_list] base: Warning: Resizing cell port free_list.enc0.i_vec from 48 bits to 64 bits.
+SBY 11:50:49 [free_list] base: finished (returncode=0)
+SBY 11:50:49 [free_list] prep: starting process "cd free_list/model; yosys -ql design_prep.log design_prep.ys"
+SBY 11:50:49 [free_list] prep: finished (returncode=0)
+SBY 11:50:49 [free_list] smt2: starting process "cd free_list/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 11:50:49 [free_list] smt2: finished (returncode=0)
+SBY 11:50:49 [free_list] engine_0: starting process "cd free_list; yosys-smtbmc --presat --unroll --noprogress -t 32  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 11:50:49 [free_list] engine_0: ##   0:00:00  Solver: yices
+SBY 11:50:50 [free_list] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 11:50:50 [free_list] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 11:50:50 [free_list] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 11:50:50 [free_list] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 11:50:50 [free_list] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 11:50:50 [free_list] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 11:50:50 [free_list] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 11:50:50 [free_list] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 11:50:50 [free_list] engine_0: ##   0:00:00  BMC failed!
+SBY 11:50:50 [free_list] engine_0: ##   0:00:00  Assert failed in free_list: free_list.v:99.21-99.49 (_witness_.check_assert_free_list_v_99_58)
+SBY 11:50:50 [free_list] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 11:50:50 [free_list] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 11:50:50 [free_list] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 11:50:50 [free_list] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 11:50:50 [free_list] engine_0: ##   0:00:00  Status: failed
+SBY 11:50:50 [free_list] engine_0: finished (returncode=1)
+SBY 11:50:50 [free_list] engine_0: Status returned by engine: FAIL
+SBY 11:50:50 [free_list] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 11:50:50 [free_list] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 11:50:50 [free_list] summary: engine_0 (smtbmc) returned FAIL
+SBY 11:50:50 [free_list] summary: counterexample trace: free_list/engine_0/trace.vcd
+SBY 11:50:50 [free_list] summary:   failed assertion free_list._witness_.check_assert_free_list_v_99_58 at free_list.v:99.21-99.49 in step 3
+SBY 11:50:50 [free_list] DONE (FAIL, rc=2)
